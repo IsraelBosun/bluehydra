@@ -20,14 +20,14 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'backdrop-blur-glass shadow-lg py-4'
-          : 'bg-transparent py-6'
+          : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="group">
-            <h1 className="text-2xl lg:text-3xl font-display font-bold text-navy-primary group-hover:text-accent-gold transition-colors duration-300">
+            <h1 className="text-2xl lg:text-xl font-display font-bold text-navy-primary group-hover:text-accent-gold transition-colors duration-300">
               {companyData.name}
             </h1>
           </Link>

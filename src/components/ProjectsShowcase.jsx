@@ -56,15 +56,6 @@ export default function ProjectsShowcase() {
                   <span className="text-sm font-semibold text-accent-gold uppercase tracking-wider">
                     {project.type}
                   </span>
-                  <a
-                    href={project.link}
-                    className="text-navy-primary hover:text-accent-gold transition-colors duration-300"
-                    aria-label={`View ${project.title}`}
-                  >
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
                 </div>
 
                 <h3 className="text-3xl font-display font-bold text-navy-deep mb-4">
@@ -78,6 +69,8 @@ export default function ProjectsShowcase() {
                 {/* View Project Link */}
                 <a
                   href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center mt-6 text-navy-primary font-semibold hover:text-accent-gold transition-colors duration-300 group"
                 >
                   View Project

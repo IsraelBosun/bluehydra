@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Vertex Solutions - Engineering Excellence, Delivered',
+  title: ' Bluehydra - Engineering Excellence, Delivered',
   description: 'We build high-performance web and mobile applications that scale with your business. Custom software development for modern companies.',
   keywords: 'web development, mobile app development, custom software, software engineering, web applications, mobile applications',
 };
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         <main className="min-h-screen">
           {children}

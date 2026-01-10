@@ -37,7 +37,7 @@ export default function ServicesOverview() {
           {companyData.services.map((service, index) => (
             <div
               key={service.id}
-              className="bg-white rounded-xl p-8 shadow-lg card-hover border border-gray-100 opacity-0 animate-scale-in"
+              className="bg-white rounded-xl p-8 shadow-lg card-hover border border-gray-100  animate-scale-in"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Icon */}

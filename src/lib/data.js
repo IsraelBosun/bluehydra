@@ -1,15 +1,15 @@
 // Centralized data for the entire website
 export const companyData = {
-  name: "Vertex Solutions",
+  name: " Bluehydra",
   tagline: "Engineering Excellence, Delivered",
   description: "We build high-performance web and mobile applications that scale with your business.",
   
   contact: {
-    email: "hello@vertexsolutions.dev",
-    phone: "+1 (555) 847-9200",
+    email: "bluehydradev@gmail.com",
+    phone: "+234 906 386 3042",
     businessHours: "Monday - Friday, 9:00 AM - 6:00 PM EST",
     social: {
-      instagram: "https://instagram.com/vertexsolutions"
+      instagram: "https://instagram.com/bluehydradev"
     }
   },
 
@@ -62,19 +62,17 @@ export const companyData = {
   projects: [
     {
       id: 1,
-      title: "FinTrack Pro",
+      title: "Toausib Consulting",
       type: "Web Application",
-      description: "Enterprise financial management platform with real-time analytics and multi-currency support.",
-      image: "/images/project-web.jpg",
-      link: "#"
+      description: "Professional consulting website showcasing audit, tax advisory, and training services for Nigeria's leading firm.",
+      link: "https://toausibconsulting.com/"
     },
     {
       id: 2,
-      title: "SwiftCart",
+      title: "Nigerian Facts App",
       type: "Mobile Application",
-      description: "Cross-platform e-commerce app with seamless checkout and inventory management.",
-      image: "/images/project-mobile.jpg",
-      link: "#"
+      description: "A mobile app delivering curated Nigerian facts in short, engaging snippets with like, share, and favorites features.",
+      link: "https://play.google.com/store/apps/details?id=com.israelbosun.factos&pcampaignid=web_share"
     }
   ],
 
@@ -107,7 +105,7 @@ export const companyData = {
       name: "Sarah Mitchell",
       role: "CTO, TechFlow Inc.",
       company: "TechFlow Inc.",
-      content: "Vertex Solutions transformed our legacy system into a modern, scalable platform. Their engineering discipline and clear communication made the entire process seamless. Best development partner we've worked with.",
+      content: " Bluehydra transformed our legacy system into a modern, scalable platform. Their engineering discipline and clear communication made the entire process seamless. Best development partner we've worked with.",
       avatar: null
     },
     {
@@ -122,8 +120,8 @@ export const companyData = {
 
   navigation: [
     { label: "Home", href: "/" },
-    { label: "Services", href: "#services" },
-    { label: "Projects", href: "#projects" },
+    { label: "Services", href: "/#services" },
+    { label: "Projects", href: "/#projects" },
     { label: "Contact", href: "/contact" }
   ],
 
