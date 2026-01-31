@@ -244,7 +244,7 @@ export default function ContactPage() {
             {/* Sidebar Information */}
             <div className="space-y-8">
               <div className="bg-navy-deep text-white rounded-2xl shadow-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+                <h3 className="text-2xl text-white font-bold mb-6">Contact Information</h3>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-10 h-10 bg-accent-gold/20 rounded-lg flex items-center justify-center">
