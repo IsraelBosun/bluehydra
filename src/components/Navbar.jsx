@@ -19,11 +19,11 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'backdrop-blur-glass shadow-lg py-4'
-          : ''
+          ? 'backdrop-blur-glass shadow-lg py-3'
+          : 'backdrop-blur-glass'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mt-2 mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="group">
@@ -83,7 +83,7 @@ export default function Navbar() {
               <Link
                 key={index}
                 href={item.href}
-                className="block text-charcoal hover:text-navy-primary font-medium transition-colors duration-300 py-2"
+                className="block text-charcoal  hover:text-navy-primary font-medium transition-colors duration-300 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
@@ -102,3 +102,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

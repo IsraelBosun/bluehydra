@@ -73,7 +73,14 @@ export const companyData = {
       type: "Mobile Application",
       description: "A mobile app delivering curated Nigerian facts in short, engaging snippets with like, share, and favorites features.",
       link: "https://play.google.com/store/apps/details?id=com.israelbosun.factos&pcampaignid=web_share"
-    }
+    },
+      {
+      id: 3,
+      title: "The Word Impact Network Event Website",
+      type: "Web Application",
+      description: "Professional event website showcasing the World Impact Network's global initiatives and community engagement.",
+      link: "https://thewordimpactnetwork.com/"
+    },
   ],
 
   valueProposition: {

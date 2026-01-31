@@ -3,7 +3,7 @@ import { companyData } from '@/lib/data';
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-deep text-white">
+    <footer className="bg-navy-deep text-white mt-0.5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}

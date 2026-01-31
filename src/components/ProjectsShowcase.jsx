@@ -53,7 +53,7 @@ export default function ProjectsShowcase() {
               {/* Project Info */}
               <div className="p-8">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-semibold text-accent-gold uppercase tracking-wider">
+                  <span className="text-sm  font-semibold text-accent-gold uppercase tracking-wider">
                     {project.type}
                   </span>
                 </div>

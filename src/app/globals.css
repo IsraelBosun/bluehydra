@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap");
+
 @import "tailwindcss";
 
 @theme {
+
+
   /* Font Family Mapping */
-  --font-display: "Outfit", system-ui, sans-serif;
-  --font-body: "Cormorant Garamond", serif;
+  /* --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Cormorant Garamond", serif; */
   
   /* Color Mapping */
   --color-navy-deep: #0f2847;
@@ -63,13 +65,11 @@
     scroll-behavior: smooth;
   }
 
-  body {
+body {
     font-family: var(--font-body);
-    color: var(--color-charcoal);
-    background-color: #ffffff;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-dark-bg);
+    color: #f1f5f9;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -78,6 +78,15 @@
     font-weight: 700;
     line-height: 1.2;
   }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--color-dark-bg); }
+  ::-webkit-scrollbar-thumb { 
+    background: var(--color-dark-card); 
+    border-radius: 10px;
+    border: 2px solid var(--color-dark-bg);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 }
 
 @layer utilities {
@@ -139,6 +148,8 @@
 }
 
 @layer components {
+
+  
   .btn-primary {
     background: linear-gradient(135deg, var(--color-navy-primary) 0%, var(--color-navy-deep) 100%);
     color: white;
