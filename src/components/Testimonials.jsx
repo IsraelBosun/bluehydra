@@ -1,6 +1,34 @@
+'use client';
+
+import { useRef, useState, useEffect } from 'react';
 import { companyData } from '@/lib/data';
 
 export default function Testimonials() {
+  const sliderRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const total = companyData.testimonials.length;
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const handleScroll = () => {
+      const cardWidth = slider.scrollWidth / total;
+      const index = Math.round(slider.scrollLeft / cardWidth);
+      setActiveIndex(Math.min(index, total - 1));
+    };
+
+    slider.addEventListener('scroll', handleScroll, { passive: true });
+    return () => slider.removeEventListener('scroll', handleScroll);
+  }, [total]);
+
+  const scrollTo = (index) => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+    const cardWidth = slider.scrollWidth / total;
+    slider.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+  };
+
   return (
     <section className="section-padding bg-navy-deep text-white relative overflow-hidden">
 
@@ -28,53 +56,69 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Slider on sm/md — Grid on lg+ */}
+        <div
+          ref={sliderRef}
+          className="
+            flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4
+            lg:grid lg:grid-cols-3 lg:overflow-x-visible lg:snap-none lg:pb-0
+            [&::-webkit-scrollbar]:hidden
+          "
+          style={{ scrollbarWidth: 'none' }}
+        >
           {companyData.testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/8 card-hover opacity-0 animate-fade-in"
+              className="
+                snap-start shrink-0 w-[85vw] sm:w-[70vw]
+                lg:w-auto lg:shrink
+                bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/8 card-hover
+                opacity-0 animate-fade-in flex flex-col
+              "
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Quote Icon */}
               <div className="mb-6">
-                <svg
-                  className="w-10 h-10 text-accent-gold opacity-60"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-10 h-10 text-accent-gold opacity-60" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
 
-              {/* Testimonial Content */}
-              <p className="text-lg text-white/75 leading-relaxed mb-8 italic">
+              {/* Content */}
+              <p className="text-lg text-white/75 leading-relaxed mb-8 italic flex-1">
                 "{testimonial.content}"
               </p>
 
-              {/* Author Info */}
+              {/* Author */}
               <div className="flex items-center space-x-4 border-t border-white/10 pt-6">
-                {/* Avatar */}
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-gold to-navy-primary flex items-center justify-center flex-shrink-0 shadow-lg">
                   <span className="text-xl font-display font-bold text-white">
                     {testimonial.name.charAt(0)}
                   </span>
                 </div>
-
-                {/* Author Details */}
                 <div>
-                  <div className="font-semibold text-white text-lg">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-accent-gold text-sm">
-                    {testimonial.role}
-                  </div>
-                  <div className="text-white/40 text-sm">
-                    {testimonial.company}
-                  </div>
+                  <div className="font-semibold text-white text-lg">{testimonial.name}</div>
+                  <div className="text-accent-gold text-sm">{testimonial.role}</div>
+                  <div className="text-white/40 text-sm">{testimonial.company}</div>
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Dot indicators — only on small/md */}
+        <div className="flex justify-center gap-2 mt-6 lg:hidden">
+          {companyData.testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              aria-label={`Go to testimonial ${i + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                i === activeIndex
+                  ? 'w-6 h-2 bg-accent-gold'
+                  : 'w-2 h-2 bg-white/30 hover:bg-white/60'
+              }`}
+            />
           ))}
         </div>
 

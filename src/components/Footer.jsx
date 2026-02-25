@@ -3,7 +3,9 @@ import { companyData } from '@/lib/data';
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-deep text-white mt-0.5">
+    <footer className="bg-black text-white relative">
+      {/* Gradient divider line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-navy-primary to-transparent opacity-60" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}

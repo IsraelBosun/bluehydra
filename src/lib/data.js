@@ -6,7 +6,7 @@ export const companyData = {
   
   contact: {
     email: "bluehydradev@gmail.com",
-    phone: "+234 906 386 3042",
+    phone: "+234 913 310 5749",
     businessHours: "Monday - Friday, 9:00 AM - 6:00 PM EST",
     social: {
       instagram: "https://instagram.com/bluehydradev"
@@ -65,21 +65,24 @@ export const companyData = {
       title: "Toausib Consulting",
       type: "Web Application",
       description: "Professional consulting website showcasing audit, tax advisory, and training services for Nigeria's leading firm.",
-      link: "https://toausibconsulting.com/"
+      link: "https://toausibconsulting.com/",
+      image: "/images/projects/toausib-consulting.jpg"
     },
     {
       id: 2,
       title: "Nigerian Facts App",
       type: "Mobile Application",
       description: "A mobile app delivering curated Nigerian facts in short, engaging snippets with like, share, and favorites features.",
-      link: "https://play.google.com/store/apps/details?id=com.israelbosun.factos&pcampaignid=web_share"
+      link: "https://play.google.com/store/apps/details?id=com.israelbosun.factos&pcampaignid=web_share",
+      image: "/images/projects/nigerian-facts-app.jpg"
     },
-      {
+    {
       id: 3,
       title: "The Word Impact Network Event Website",
       type: "Web Application",
       description: "Professional event website showcasing the World Impact Network's global initiatives and community engagement.",
-      link: "https://thewordimpactnetwork.com/"
+      link: "https://thewordimpactnetwork.com/",
+      image: "/images/projects/word-impact-network.jpg"
     },
   ],
 
@@ -121,6 +124,14 @@ export const companyData = {
       role: "Founder & CEO",
       company: "StartupHub",
       content: "They don't just build software—they solve problems. The team understood our business needs and delivered a product that exceeded expectations. Their attention to code quality is unmatched.",
+      avatar: null
+    },
+    {
+      id: 3,
+      name: "Amara Okonkwo",
+      role: "Director of Operations",
+      company: "Nexbridge Group",
+      content: "From the initial brief to final delivery, Bluehydra was professional, responsive, and thorough. They built exactly what we envisioned — on time and within budget. We've already brought them back for a second project.",
       avatar: null
     }
   ],

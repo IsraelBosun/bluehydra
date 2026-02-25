@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { companyData } from '@/lib/data';
 
 export default function ProjectsShowcase() {
@@ -23,36 +24,17 @@ export default function ProjectsShowcase() {
               className="group relative bg-[#faf8ff] rounded-2xl overflow-hidden shadow-xl card-hover animate-fade-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Project Image Placeholder */}
-              <div className="relative h-72 bg-gradient-to-br from-navy-primary to-navy-deep overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-
-                  {/* Decorative Pattern */}
-                  <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-lg rotate-12" />
-                    <div className="absolute bottom-10 right-10 w-40 h-40 border-2 border-white rounded-lg -rotate-6" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-white rounded-full" />
-                  </div>
-
-                  {/* Glow spot */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-400/20 rounded-full blur-3xl" />
-
-                  {/* Project Icon */}
-                  <div className="relative z-10 text-white">
-                    {project.type === 'Web Application' ? (
-                      <svg className="w-24 h-24 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    ) : (
-                      <svg className="w-24 h-24 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                      </svg>
-                    )}
-                  </div>
-
-                  {/* Hover Overlay (cyan tint) */}
-                  <div className="absolute inset-0 bg-cyan-400 opacity-0 group-hover:opacity-15 transition-opacity duration-400" />
-                </div>
+              {/* Project Screenshot */}
+              <div className="relative h-72 bg-navy-deep overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={`Screenshot of ${project.title}`}
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-navy-deep opacity-0 group-hover:opacity-20 transition-opacity duration-400" />
               </div>
 
               {/* Project Info */}
