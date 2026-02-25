@@ -4,6 +4,7 @@ export default function ProjectsShowcase() {
   return (
     <section id="projects" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-display font-bold text-navy-deep mb-4 decorative-line inline-block">
@@ -19,19 +20,23 @@ export default function ProjectsShowcase() {
           {companyData.projects.map((project, index) => (
             <div
               key={project.id}
-              className="group relative bg-gray-50 rounded-2xl overflow-hidden shadow-xl card-hover  animate-fade-in"
+              className="group relative bg-[#faf8ff] rounded-2xl overflow-hidden shadow-xl card-hover animate-fade-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Project Image Placeholder */}
-              <div className="relative h-80 bg-gradient-to-br from-navy-primary to-navy-deep overflow-hidden">
+              <div className="relative h-72 bg-gradient-to-br from-navy-primary to-navy-deep overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
+
                   {/* Decorative Pattern */}
                   <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-lg rotate-12">Hello</div>
-                    <div className="absolute bottom-10 right-10 w-40 h-40 border-2 border-white rounded-lg -rotate-6">worldddd</div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-white rounded-full"></div>
+                    <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-lg rotate-12" />
+                    <div className="absolute bottom-10 right-10 w-40 h-40 border-2 border-white rounded-lg -rotate-6" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-white rounded-full" />
                   </div>
-                  
+
+                  {/* Glow spot */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-400/20 rounded-full blur-3xl" />
+
                   {/* Project Icon */}
                   <div className="relative z-10 text-white">
                     {project.type === 'Web Application' ? (
@@ -44,16 +49,16 @@ export default function ProjectsShowcase() {
                       </svg>
                     )}
                   </div>
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-accent-gold opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+
+                  {/* Hover Overlay (cyan tint) */}
+                  <div className="absolute inset-0 bg-cyan-400 opacity-0 group-hover:opacity-15 transition-opacity duration-400" />
                 </div>
               </div>
 
               {/* Project Info */}
               <div className="p-8">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm  font-semibold text-accent-gold uppercase tracking-wider">
+                  <span className="text-sm font-semibold text-accent-gold uppercase tracking-wider">
                     {project.type}
                   </span>
                 </div>
@@ -71,11 +76,11 @@ export default function ProjectsShowcase() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center mt-6 text-navy-primary font-semibold hover:text-accent-gold transition-colors duration-300 group"
+                  className="inline-flex items-center mt-6 text-navy-primary font-semibold hover:text-accent-gold transition-colors duration-300 group/link"
                 >
                   View Project
                   <svg
-                    className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
+                    className="w-5 h-5 ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

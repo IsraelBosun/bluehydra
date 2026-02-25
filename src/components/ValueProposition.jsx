@@ -2,8 +2,9 @@ import { companyData } from '@/lib/data';
 
 export default function ValueProposition() {
   return (
-    <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+    <section className="section-padding bg-gradient-to-br from-[#f5f3ff] via-white to-[#ecfeff]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-display font-bold text-navy-deep mb-4 decorative-line inline-block">
@@ -19,11 +20,11 @@ export default function ValueProposition() {
           {companyData.valueProposition.points.map((point, index) => (
             <div
               key={index}
-              className="relative bg-white rounded-xl p-8 shadow-lg border-l-4 border-accent-gold card-hover opacity-0 animate-slide-up"
+              className="relative bg-white rounded-2xl p-8 shadow-lg border-l-4 border-accent-gold card-hover opacity-0 animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Number Badge */}
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-primary text-white rounded-full flex items-center justify-center font-display font-bold text-xl shadow-lg">
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-primary text-white rounded-full flex items-center justify-center font-display font-bold text-xl shadow-lg shadow-violet-200">
                 {index + 1}
               </div>
 
@@ -38,7 +39,7 @@ export default function ValueProposition() {
               </div>
 
               {/* Decorative Corner */}
-              <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-accent-gold opacity-20 rounded-br-xl"></div>
+              <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-accent-gold opacity-20 rounded-br-xl" />
             </div>
           ))}
         </div>
