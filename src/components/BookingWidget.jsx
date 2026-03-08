@@ -122,6 +122,9 @@ export default function BookingWidget() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       return setFormError("Please enter a valid email address.");
     }
+    if (!form.note.trim()) {
+      return setFormError("Please describe what you would like to discuss.");
+    }
     setSubmitting(true);
     try {
       const res = await fetch("/api/book", {
@@ -427,12 +430,12 @@ export default function BookingWidget() {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#1e1b4b] mb-1.5">
-                  Notes{" "}
-                  <span className="text-gray-400 font-normal">(optional)</span>
+                  Notes <span className="text-red-400">*</span>
                 </label>
                 <textarea
                   name="note"
                   rows={3}
+                  required
                   value={form.note}
                   onChange={handleFormChange}
                   placeholder="Brief description of what you would like to discuss&hellip;"
