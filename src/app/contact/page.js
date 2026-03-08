@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { companyData } from '@/lib/data';
 import { sendContactEmail } from '@/app/actions/sendEmail';
+import BookingWidget from '@/components/BookingWidget';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -281,6 +282,23 @@ export default function ContactPage() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Section */}
+      <section className="pb-24 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-display font-bold text-navy-deep mb-4">
+              Or Book a Time Directly
+            </h2>
+            <p className="text-charcoal/70 max-w-xl mx-auto">
+              Pick a slot that works for you and we will send a calendar invite straight to your inbox.
+            </p>
+          </div>
+          <div className="max-w-lg mx-auto">
+            <BookingWidget />
           </div>
         </div>
       </section>
