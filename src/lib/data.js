@@ -1,6 +1,6 @@
 // Centralized data for the entire website
 export const companyData = {
-  name: " Bluehydra",
+  name: "Bluehydra Labs",
   tagline: "Engineering Excellence, Delivered",
   description: "We build high-performance web and mobile applications that scale with your business.",
   
@@ -112,28 +112,20 @@ export const companyData = {
   testimonials: [
     {
       id: 1,
-      name: "Sarah Mitchell",
-      role: "CTO, TechFlow Inc.",
-      company: "TechFlow Inc.",
-      content: " Bluehydra transformed our legacy system into a modern, scalable platform. Their engineering discipline and clear communication made the entire process seamless. Best development partner we've worked with.",
+      name: "Jude Oni",
+      role: "Convener",
+      company: "The Word Impact Network",
+      content: "Bluehydra captured exactly what The Word Impact Network stands for. The website they delivered was clean, professional, and perfectly represented our global mission. They listened carefully, communicated clearly throughout the process, and delivered well ahead of schedule. Exceptional work.",
       avatar: null
     },
     {
       id: 2,
-      name: "James Rodriguez",
-      role: "Founder & CEO",
-      company: "StartupHub",
-      content: "They don't just build software—they solve problems. The team understood our business needs and delivered a product that exceeded expectations. Their attention to code quality is unmatched.",
+      name: "Victor Fatoyinbo",
+      role: "Principal Partner",
+      company: "Toausib Consulting",
+      content: "Working with Bluehydra was a seamless experience from start to finish. They built a website that truly reflects the standard and credibility of our firm. Every detail — the layout, the content structure, the performance — was handled with real professionalism. I would recommend them without hesitation.",
       avatar: null
     },
-    {
-      id: 3,
-      name: "Amara Okonkwo",
-      role: "Director of Operations",
-      company: "Nexbridge Group",
-      content: "From the initial brief to final delivery, Bluehydra was professional, responsive, and thorough. They built exactly what we envisioned — on time and within budget. We've already brought them back for a second project.",
-      avatar: null
-    }
   ],
 
   navigation: [

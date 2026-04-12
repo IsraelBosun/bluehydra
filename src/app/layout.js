@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: ' Bluehydra - Engineering Excellence, Delivered',
+  title: 'Bluehydra Labs - Engineering Excellence, Delivered',
   description: 'We build high-performance web and mobile applications that scale with your business. Custom software development for modern companies.',
   keywords: 'web development, mobile app development, custom software, software engineering, web applications, mobile applications',
 };
@@ -25,7 +25,8 @@ export default function RootLayout({ children }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
       </head>
       <body >
         <Navbar />

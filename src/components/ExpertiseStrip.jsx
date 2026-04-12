@@ -1,66 +1,87 @@
+"use client";
+import { motion } from 'framer-motion';
 import { companyData } from '@/lib/data';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] } },
+};
+
+const slideLeft = {
+  hidden: { opacity: 0, x: -24 },
+  show:   { opacity: 1, x: 0,  transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] } },
+};
+
+const slideRight = {
+  hidden: { opacity: 0, x: 24 },
+  show:   { opacity: 1, x: 0,  transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] } },
+};
+
+const stagger = {
+  hidden: {},
+  show:   { transition: { staggerChildren: 0.09 } },
+};
 
 export default function ExpertiseStrip() {
   return (
-    <section id="about" className="section-padding bg-navy-deep text-white relative overflow-hidden">
+    <section id="about" className="section-padding bg-gray-50 border-y border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px]"
-          style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.10) 0%, transparent 70%)' }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)' }}
-        />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-          {/* Left: Title & Description */}
-          <div className="space-y-6">
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white decorative-line">
+          {/* Left */}
+          <motion.div
+            className="space-y-6"
+            variants={slideLeft}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">About Us</p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight tracking-tight">
               {companyData.expertise.title}
             </h2>
-            <p className="text-lg text-white/65 leading-relaxed">
+            <p className="text-lg text-gray-500 leading-relaxed">
               {companyData.expertise.description}
             </p>
-          </div>
+          </motion.div>
 
-          {/* Right: Focus Areas */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-display font-semibold text-accent-gold mb-6">
-              Core Focus Areas
-            </h3>
-            <ul className="space-y-4">
-              {companyData.expertise.focusAreas.map((area, index) => (
-                <li
-                  key={index}
-                  className="flex items-center space-x-4 text-white/85 opacity-0 animate-slide-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex-shrink-0 w-2 h-2 bg-accent-gold rounded-full" />
-                  <span className="text-lg font-medium">{area}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Metrics */}
-            <div className="mt-12 grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
-              {companyData.expertise.metrics.map((metric, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-display font-bold text-accent-gold mb-1">
-                    {metric.value}
-                  </div>
-                  <div className="text-xs text-white/45 uppercase tracking-wider">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
+          {/* Right */}
+          <motion.div
+            className="space-y-8"
+            variants={slideRight}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+          >
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">Core Focus</p>
+              <motion.ul className="space-y-3" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }}>
+                {companyData.expertise.focusAreas.map((area, index) => (
+                  <motion.li key={index} variants={fadeUp} className="flex items-center space-x-3 text-gray-700">
+                    <svg className="w-4 h-4 text-black flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-base font-medium">{area}</span>
+                  </motion.li>
+                ))}
+              </motion.ul>
             </div>
-          </div>
+
+            <motion.div
+              className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200"
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              {companyData.expertise.metrics.map((metric, index) => (
+                <motion.div key={index} variants={fadeUp}>
+                  <div className="text-3xl font-bold text-black mb-1">{metric.value}</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-wider">{metric.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>

@@ -3,55 +3,37 @@
 
 @theme {
 
-  /* ─── Color Palette: Electric Violet + Cyan ─────────────────────────────── */
-  --color-navy-deep: #09051e;         /* Deep space violet-black (dark sections) */
-  --color-navy-primary: #7c3aed;      /* Electric violet — main brand color      */
-  --color-accent-gold: #06b6d4;       /* Electric cyan/teal — highlight accent   */
-  --color-accent-gray: #94a3b8;       /* Cool slate gray — muted text            */
-  --color-charcoal: #1e1b4b;          /* Dark indigo — body text on light bg     */
+  /* ─── Color Palette ──────────────────────────────────────────────────────── */
+  --color-navy-deep:    #09051e;
+  --color-navy-primary: #7c3aed;
+  --color-accent-gold:  #06b6d4;
+  --color-accent-gray:  #94a3b8;
+  --color-charcoal:     #404040;
 
-  /* ─── Animation Definitions ─────────────────────────────────────────────── */
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-shimmer: shimmer 2s infinite;
-  --animate-fade-in: fadeIn 0.8s ease-out forwards;
-  --animate-slide-up: slideUp 0.6s ease-out forwards;
-  --animate-slide-in: slideIn 0.6s ease-out forwards;
-  --animate-scale-in: scaleIn 0.5s ease-out forwards;
-  --animate-glow: glowPulse 3s ease-in-out infinite;
+  /* ─── Animations ─────────────────────────────────────────────────────────── */
+  --animate-float:    float 6s ease-in-out infinite;
+  --animate-fade-in:  fadeIn 0.6s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+  --animate-bounce:   bounce 1s infinite;
 
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50%       { transform: translateY(-20px); }
   }
 
-  @keyframes shimmer {
-    0%   { background-position: -1000px 0; }
-    100% { background-position: 1000px 0; }
-  }
-
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(-20px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to   { opacity: 1; transform: scale(1); }
-  }
-
-  @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.35), 0 0 40px rgba(124, 58, 237, 0.1); }
-    50%       { box-shadow: 0 0 35px rgba(124, 58, 237, 0.55), 0 0 70px rgba(6, 182, 212, 0.2); }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+    50%       { transform: translateY(-8px); animation-timing-function: cubic-bezier(0,0,0.2,1); }
   }
 }
 
@@ -68,27 +50,26 @@
 
   body {
     font-family: var(--font-body);
-    background: white;
-    color: var(--color-charcoal);
+    background: #ffffff;
+    color: #111111;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    color: var(--color-charcoal);
+    color: #000000;
     font-weight: 700;
     line-height: 1.2;
   }
 
   /* ─── Custom Scrollbar ───────────────────────────────────────────────────── */
-  ::-webkit-scrollbar        { width: 8px; }
-  ::-webkit-scrollbar-track  { background: #09051e; }
-  ::-webkit-scrollbar-thumb  {
-    background: #7c3aed;
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f5f5f5; }
+  ::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
     border-radius: 10px;
-    border: 2px solid #09051e;
   }
-  ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+  ::-webkit-scrollbar-thumb:hover { background: #a3a3a3; }
 }
 
 @layer utilities {
@@ -100,34 +81,12 @@
 
   @media (min-width: 1024px) {
     .section-padding {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
+      padding-top: 7rem;
+      padding-bottom: 7rem;
     }
   }
 
-  /* ─── Decorative Underline (violet → cyan gradient) ─────────────────────── */
-  .decorative-line {
-    position: relative;
-    padding-bottom: 1.5rem;
-  }
-
-  .decorative-line::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 3.5rem;
-    height: 4px;
-    background: linear-gradient(90deg, #7c3aed, #06b6d4);
-    border-radius: 9999px;
-  }
-
-  .text-center .decorative-line::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* ─── Gradient Text (violet → cyan) ─────────────────────────────────────── */
+  /* ─── Gradient Text ──────────────────────────────────────────────────────── */
   .gradient-text {
     background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%);
     -webkit-background-clip: text;
@@ -135,34 +94,28 @@
     background-clip: text;
   }
 
-  /* ─── Frosted Glass (light lavender tint) ───────────────────────────────── */
-  .backdrop-blur-glass {
-    backdrop-filter: blur(14px) saturate(200%);
-    background-color: rgba(250, 247, 255, 0.90);
-  }
-
-  /* ─── Card Hover — lift + violet glow ───────────────────────────────────── */
+  /* ─── Card Hover ─────────────────────────────────────────────────────────── */
   .card-hover {
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
   }
 
   .card-hover:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 50px -8px rgba(124, 58, 237, 0.20),
-                0 0 0 1px rgba(124, 58, 237, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
   }
 }
 
 @layer components {
 
-  /* ─── Primary Button (electric violet gradient) ──────────────────────────── */
+  /* ─── Primary Button ─────────────────────────────────────────────────────── */
   .btn-primary {
-    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
-    color: white;
-    padding: 1rem 2.5rem;
-    border-radius: 0.625rem;
+    background: #000000;
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
     font-weight: 600;
-    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    transition: background 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -171,31 +124,33 @@
   }
 
   .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 32px rgba(124, 58, 237, 0.50);
-    filter: brightness(1.12);
+    background: #1a1a1a;
   }
 
-  /* ─── Secondary Button (outlined violet) ────────────────────────────────── */
+  /* ─── Secondary Button ───────────────────────────────────────────────────── */
   .btn-secondary {
     background: transparent;
-    color: var(--color-navy-primary);
-    padding: 1rem 2.5rem;
-    border-radius: 0.625rem;
+    color: #111111;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
     font-weight: 600;
-    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--color-navy-primary);
+    border: 1px solid #e5e5e5;
     cursor: pointer;
   }
 
   .btn-secondary:hover {
-    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
-    border-color: transparent;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 14px 32px rgba(124, 58, 237, 0.35);
+    border-color: #a3a3a3;
+    background: #f5f5f5;
+  }
+
+  /* ─── Glass (kept for contact page / booking widget) ────────────────────── */
+  .backdrop-blur-glass {
+    backdrop-filter: blur(14px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.92);
   }
 }

@@ -1,61 +1,83 @@
+"use client";
+import { motion } from 'framer-motion';
 import { companyData } from '@/lib/data';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+};
+
+const stagger = {
+  hidden: {},
+  show:   { transition: { staggerChildren: 0.1 } },
+};
 
 export default function ValueProposition() {
   return (
-    <section className="section-padding bg-gradient-to-br from-[#f5f3ff] via-white to-[#ecfeff]">
+    <section className="section-padding bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-display font-bold text-navy-deep mb-4 decorative-line inline-block">
-            {companyData.valueProposition.title}
-          </h2>
-          <p className="text-xl text-accent-gray max-w-2xl mx-auto mt-6 font-light italic">
-            {companyData.valueProposition.subtitle}
-          </p>
-        </div>
+        {/* Header */}
+        <motion.div
+          className="mb-16"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+            Why Us
+          </motion.p>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <motion.h2 variants={fadeUp} className="text-4xl lg:text-5xl font-bold text-black tracking-tight leading-tight max-w-xl">
+              {companyData.valueProposition.title}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-gray-400 max-w-xs text-sm italic">
+              {companyData.valueProposition.subtitle}
+            </motion.p>
+          </div>
+        </motion.div>
 
-        {/* Value Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {/* Value points grid */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 border border-gray-200 rounded-xl overflow-hidden mb-14"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-40px" }}
+        >
           {companyData.valueProposition.points.map((point, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative bg-white rounded-2xl p-8 shadow-lg border-l-4 border-accent-gold card-hover opacity-0 animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              variants={fadeUp}
+              className="bg-white p-8 hover:bg-gray-50 transition-colors duration-200"
             >
-              {/* Number Badge */}
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-primary text-white rounded-full flex items-center justify-center font-display font-bold text-xl shadow-lg shadow-violet-200">
-                {index + 1}
-              </div>
-
-              {/* Content */}
-              <div className="mt-4">
-                <h3 className="text-2xl font-display font-bold text-navy-deep mb-4">
-                  {point.title}
-                </h3>
-                <p className="text-charcoal leading-relaxed">
-                  {point.description}
-                </p>
-              </div>
-
-              {/* Decorative Corner */}
-              <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-accent-gold opacity-20 rounded-br-xl" />
-            </div>
+              <div className="text-xs font-bold text-gray-200 mb-4 font-mono tracking-widest">0{index + 1}</div>
+              <h3 className="text-xl font-bold text-black mb-3 leading-snug">{point.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">{point.description}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
+        {/* CTA */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <a
             href="/contact"
-            className="btn-primary text-lg px-10 py-4 inline-flex items-center space-x-3"
+            className="inline-flex items-center space-x-2 px-8 py-3.5 bg-black text-white text-sm font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-sm"
           >
             <span>Let's Build Something Great</span>
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );
