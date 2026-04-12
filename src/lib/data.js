@@ -84,6 +84,14 @@ export const companyData = {
       link: "https://thewordimpactnetwork.com/",
       image: "/images/projects/word-impact-network.jpg"
     },
+    {
+      id: 4,
+      title: "Pearloria",
+      type: "Web Application",
+      description: "Business registration and compliance platform helping Nigerian entrepreneurs legally register, structure, and protect their businesses — covering CAC registration, company incorporation, trademarks, and ongoing compliance filings.",
+      link: "https://pearloria.vercel.app",
+      image: "/images/projects/pearloria.jpg"
+    },
   ],
 
   valueProposition: {

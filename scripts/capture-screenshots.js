@@ -16,6 +16,10 @@ const projects = [
     name: 'word-impact-network',
     url: 'https://thewordimpactnetwork.com/',
   },
+  {
+    name: 'pearloria',
+    url: 'https://pearloria.vercel.app',
+  },
 ];
 
 const outputDir = path.join(__dirname, '..', 'public', 'images', 'projects');
