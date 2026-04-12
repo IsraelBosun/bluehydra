@@ -52,7 +52,7 @@ export default function HeroSection() {
         <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-black leading-[1.04] tracking-tight mb-4">
           {companyData.hero.headline}
         </motion.h1>
-        <motion.h2 variants={fadeUp} className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-300 leading-[1.04] tracking-tight mb-8">
+        <motion.h2 variants={fadeUp} className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#7c3aed] leading-[1.04] tracking-tight mb-8">
           {companyData.hero.subheadline}
         </motion.h2>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
             href="/contact"
-            className="w-full sm:w-auto px-8 py-3 bg-black text-white text-sm font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-sm"
+            className="w-full sm:w-auto px-8 py-3 bg-[#7c3aed] text-white text-sm font-semibold rounded-lg hover:bg-[#6d28d9] transition-colors duration-200 shadow-sm"
           >
             {companyData.hero.cta.primary}
           </a>

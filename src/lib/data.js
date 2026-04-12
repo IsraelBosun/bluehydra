@@ -5,9 +5,9 @@ export const companyData = {
   description: "We build high-performance web and mobile applications that scale with your business.",
   
   contact: {
-    email: "bluehydradev@gmail.com",
+    email: "bosun@bluehydradev.com",
     phone: "+234 913 310 5749",
-    businessHours: "Monday - Friday, 9:00 AM - 6:00 PM EST",
+
     social: {
       instagram: "https://instagram.com/bluehydradev"
     }

@@ -155,7 +155,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 bg-black text-white text-sm font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-3.5 bg-[#7c3aed] text-white text-sm font-semibold rounded-lg hover:bg-[#6d28d9] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -206,17 +206,6 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <div className="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">Business Hours</div>
-                      <p className="text-sm text-black">{companyData.contact.businessHours}</p>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -243,7 +232,7 @@ export default function ContactPage() {
               <div className="border border-gray-200 rounded-xl p-5 bg-gray-50">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-xs font-semibold text-black">Typically responds within 24 hours</span>
+                  <span className="text-xs font-semibold text-black">Typically responds within a few hours</span>
                 </div>
                 <p className="text-xs text-gray-400 pl-4">
                   We review all inquiries promptly and will reach out to schedule an introductory call.

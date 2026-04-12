@@ -69,7 +69,7 @@ export default function ValueProposition() {
         >
           <a
             href="/contact"
-            className="inline-flex items-center space-x-2 px-8 py-3.5 bg-black text-white text-sm font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-sm"
+            className="inline-flex items-center space-x-2 px-8 py-3.5 bg-[#7c3aed] text-white text-sm font-semibold rounded-lg hover:bg-[#6d28d9] transition-colors duration-200 shadow-sm"
           >
             <span>Let's Build Something Great</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

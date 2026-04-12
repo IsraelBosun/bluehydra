@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { companyData } from '@/lib/data';
+import LogoMark from '@/components/LogoMark';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled]             = useState(false);
@@ -36,9 +37,7 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2.5 group flex-shrink-0">
-              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center shadow-sm">
-                <div className="w-3 h-3 bg-white rounded-sm rotate-45" />
-              </div>
+              <LogoMark size={32} />
               <span className="font-bold text-base tracking-tight text-black">
                 {companyData.name}
               </span>
@@ -50,7 +49,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={item.href}
-                  className="px-4 py-2 text-sm text-gray-600 hover:text-black rounded-lg hover:bg-gray-100 transition-all duration-150 font-medium"
+                  className="px-4 py-2 text-sm text-gray-600 hover:text-[#7c3aed] rounded-lg hover:bg-violet-50 transition-all duration-150 font-medium"
                 >
                   {item.label}
                 </Link>
@@ -61,7 +60,7 @@ export default function Navbar() {
             <div className="hidden md:block flex-shrink-0">
               <Link
                 href="/contact"
-                className="px-4 py-2 text-sm font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-200"
+                className="px-4 py-2 text-sm font-semibold bg-[#7c3aed] text-white rounded-lg hover:bg-[#6d28d9] transition-colors duration-200"
               >
                 Get Started
               </Link>
@@ -96,9 +95,7 @@ export default function Navbar() {
           {/* Top row */}
           <div className="flex items-center justify-between mb-10">
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                <div className="w-3 h-3 bg-white rounded-sm rotate-45" />
-              </div>
+              <LogoMark size={32} />
               <span className="font-bold text-base tracking-tight text-black">{companyData.name}</span>
             </Link>
             <button
@@ -134,7 +131,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center w-full bg-black text-white font-semibold py-4 rounded-xl hover:bg-gray-800 transition-colors text-base"
+              className="flex items-center justify-center w-full bg-[#7c3aed] text-white font-semibold py-4 rounded-xl hover:bg-[#6d28d9] transition-colors text-base"
             >
               Get Started →
             </Link>

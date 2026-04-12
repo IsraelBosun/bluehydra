@@ -163,8 +163,8 @@ export default function BookingWidget() {
                 <div key={label} className="flex items-center gap-1.5">
                   <div
                     className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                      done   ? "bg-black text-white" :
-                      active ? "bg-black text-white" :
+                      done   ? "bg-[#7c3aed] text-white" :
+                      active ? "bg-[#7c3aed] text-white" :
                                "bg-gray-200 text-gray-400"
                     }`}
                   >
@@ -178,7 +178,7 @@ export default function BookingWidget() {
                     {label}
                   </span>
                   {i < stepLabels.length - 1 && (
-                    <div className={`w-6 h-px mx-1 ${done ? "bg-black" : "bg-gray-200"}`} />
+                    <div className={`w-6 h-px mx-1 ${done ? "bg-[#7c3aed]" : "bg-gray-200"}`} />
                   )}
                 </div>
               );
@@ -229,13 +229,13 @@ export default function BookingWidget() {
                     onClick={() => sel && selectDate(d)}
                     className={`relative aspect-square rounded-lg text-sm font-medium flex flex-col items-center justify-center transition-all ${
                       !d       ? "invisible" :
-                      sel      ? "cursor-pointer hover:bg-black hover:text-white text-black" :
+                      sel      ? "cursor-pointer hover:bg-[#7c3aed] hover:text-white text-black" :
                                  "text-gray-300 cursor-not-allowed"
                     } ${tod && sel ? "ring-1 ring-black ring-offset-1" : ""}`}
                   >
                     {d}
                     {tod && (
-                      <span className={`absolute bottom-1 w-1 h-1 rounded-full ${sel ? "bg-black" : "bg-gray-200"}`} />
+                      <span className={`absolute bottom-1 w-1 h-1 rounded-full ${sel ? "bg-[#7c3aed]" : "bg-gray-200"}`} />
                     )}
                   </button>
                 );
@@ -294,8 +294,8 @@ export default function BookingWidget() {
                       onClick={() => { setSelectedSlot(slot); setStep(3); }}
                       className={`py-2.5 px-2 rounded-lg border text-sm font-medium transition-all cursor-pointer ${
                         selectedSlot === slot
-                          ? "bg-black border-black text-white"
-                          : "border-gray-200 text-black hover:border-black hover:bg-black hover:text-white"
+                          ? "bg-[#7c3aed] border-[#7c3aed] text-white"
+                          : "border-gray-200 text-black hover:border-[#7c3aed] hover:bg-[#7c3aed] hover:text-white"
                       }`}
                     >
                       {formatTime(slot)}
@@ -352,7 +352,7 @@ export default function BookingWidget() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-3 bg-black text-white text-sm font-semibold rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full py-3 bg-[#7c3aed] text-white text-sm font-semibold rounded-lg hover:bg-[#6d28d9] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {submitting ? (
                   <>
