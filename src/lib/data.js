@@ -5,8 +5,8 @@ export const companyData = {
   description: "We build high-performance web and mobile applications that scale with your business.",
   
   contact: {
-    email: "bosun@bluehydradev.com",
-    phone: "+234 913 310 5749",
+    email: "bluehydra001@gmail.com",
+    phone: "+234 8150425188",
 
     social: {
       instagram: "https://instagram.com/bluehydradev"
@@ -69,14 +69,6 @@ export const companyData = {
       image: "/images/projects/toausib-consulting.jpg"
     },
     {
-      id: 2,
-      title: "Nigerian Facts App",
-      type: "Mobile Application",
-      description: "A mobile app delivering curated Nigerian facts in short, engaging snippets with like, share, and favorites features.",
-      link: "https://play.google.com/store/apps/details?id=com.israelbosun.factos&pcampaignid=web_share",
-      image: "/images/projects/nigerian-facts-app.jpg"
-    },
-    {
       id: 3,
       title: "The Word Impact Network Event Website",
       type: "Web Application",
@@ -89,8 +81,16 @@ export const companyData = {
       title: "Pearloria",
       type: "Web Application",
       description: "Business registration and compliance platform helping Nigerian entrepreneurs legally register, structure, and protect their businesses — covering CAC registration, company incorporation, trademarks, and ongoing compliance filings.",
-      link: "https://pearloria.vercel.app",
+      link: "https://www.pearloriaenterprises.com/",
       image: "/images/projects/pearloria.jpg"
+    },
+    {
+      id: 5,
+      title: "PhotoStudio.ng",
+      type: "Web Application",
+      description: "Studio management platform built for Nigerian photographers — client galleries, online booking, Paystack payment processing, and invoice management all in one branded system.",
+      link: "https://www.photostudio.ng",
+      image: "/images/projects/photostudio-ng.jpg"
     },
   ],
 

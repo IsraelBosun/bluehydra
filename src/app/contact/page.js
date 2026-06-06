@@ -213,7 +213,7 @@ export default function ContactPage() {
               <div className="border border-gray-200 rounded-xl p-6 bg-white">
                 <h3 className="text-base font-bold text-black mb-2">Prefer a quick chat?</h3>
                 <p className="text-sm text-gray-500 mb-5 leading-relaxed">
-                  Send us a WhatsApp message to discuss your project immediately.
+                  Send us a WhatsApp message to discuss your project. Typically responded to in a few minutes.
                 </p>
                 <a
                   href={`https://wa.me/${companyData.contact.phone.replace(/\D/g, '')}?text=${encodeURIComponent("Hello BlueHydra, I'm interested in starting a project...")}`}
