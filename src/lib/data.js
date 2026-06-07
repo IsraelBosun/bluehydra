@@ -6,7 +6,7 @@ export const companyData = {
   
   contact: {
     email: "bluehydra001@gmail.com",
-    phone: "+234 8150425188",
+    phone: "+234 913 310 5749",
 
     social: {
       instagram: "https://instagram.com/bluehydradev"
@@ -60,6 +60,14 @@ export const companyData = {
   ],
 
   projects: [
+    {
+      id: 6,
+      title: "Omicron Gadgets",
+      type: "E-Commerce",
+      description: "E-commerce platform for professional audiovisual equipment tailored to Nigerian filmmakers and content creators — featuring gimbals, microphones, studio lighting, and tripods.",
+      link: "https://omicrongadget.vercel.app/",
+      image: "/images/projects/omicron-gadgets.jpg"
+    },
     {
       id: 1,
       title: "Toausib Consulting",
