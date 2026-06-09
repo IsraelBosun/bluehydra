@@ -205,6 +205,11 @@ export default function ApplyPage() {
         : 'border-gray-200 focus:border-black focus:ring-black'
     } rounded-lg text-sm text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 transition-all bg-white`;
 
+  const autoGrow = (e) => {
+    e.target.style.height = 'auto';
+    e.target.style.height = e.target.scrollHeight + 'px';
+  };
+
   const labelClass = "block text-sm font-semibold text-black mb-1.5";
 
   return (
@@ -367,10 +372,7 @@ export default function ApplyPage() {
       <section ref={formRef} className="py-20 px-6 lg:px-8 border-b border-gray-200 bg-gray-50" id="apply-form">
         <div className="max-w-2xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Apply</p>
-          <div className="flex items-center justify-between flex-wrap gap-3 mb-10">
-            <h2 className="text-4xl font-bold text-black tracking-tight">Submit your application</h2>
-            <CountdownBadge timeLeft={timeLeft} mounted={mounted} />
-          </div>
+          <h2 className="text-4xl font-bold text-black tracking-tight mb-10">Submit your application</h2>
 
           {isClosed ? (
             <div className="border border-gray-200 rounded-xl p-10 bg-white text-center">
@@ -430,7 +432,7 @@ export default function ApplyPage() {
 
                   <div>
                     <label htmlFor="businessDescription" className={labelClass}>What does your business do? <span className="text-red-400 font-normal">*</span></label>
-                    <textarea id="businessDescription" name="businessDescription" rows={3} value={formData.businessDescription} onChange={handleChange} className={`${getInputClass('businessDescription')} resize-y`} placeholder="A sentence or two about what you sell and who you sell to." />
+                    <textarea id="businessDescription" name="businessDescription" rows={3} value={formData.businessDescription} onChange={handleChange} onInput={autoGrow} className={`${getInputClass('businessDescription')} resize-none overflow-hidden`} placeholder="A sentence or two about what you sell and who you sell to." />
                     {errors.businessDescription && <p className="text-xs text-red-500 mt-1.5">{errors.businessDescription}</p>}
                   </div>
 
@@ -463,13 +465,13 @@ export default function ApplyPage() {
 
                   <div>
                     <label htmlFor="customers" className={labelClass}>Tell us about your customers <span className="text-red-400 font-normal">*</span></label>
-                    <textarea id="customers" name="customers" rows={3} value={formData.customers} onChange={handleChange} className={`${getInputClass('customers')} resize-y`} placeholder="We just want to understand your business is real." />
+                    <textarea id="customers" name="customers" rows={3} value={formData.customers} onChange={handleChange} onInput={autoGrow} className={`${getInputClass('customers')} resize-none overflow-hidden`} placeholder="We just want to understand your business is real." />
                     {errors.customers && <p className="text-xs text-red-500 mt-1.5">{errors.customers}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="whyPick" className={labelClass}>Why should we pick you? <span className="text-red-400 font-normal">*</span></label>
-                    <textarea id="whyPick" name="whyPick" rows={4} value={formData.whyPick} onChange={handleChange} className={`${getInputClass('whyPick')} resize-y`} placeholder="What are you working towards? Why does a website matter for you right now?" />
+                    <textarea id="whyPick" name="whyPick" rows={4} value={formData.whyPick} onChange={handleChange} onInput={autoGrow} className={`${getInputClass('whyPick')} resize-none overflow-hidden`} placeholder="What are you working towards? Why does a website matter for you right now?" />
                     {errors.whyPick && <p className="text-xs text-red-500 mt-1.5">{errors.whyPick}</p>}
                   </div>
 
