@@ -1,7 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { sendApplicationEmail } from '@/app/actions/sendApplication';
 
 const DEADLINE = new Date('2026-06-12T23:59:59');
@@ -250,64 +248,6 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      {/* Work preview */}
-      <section className="py-20 px-6 lg:px-8 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Our work</p>
-              <h2 className="text-2xl font-bold text-black tracking-tight">This is the standard you're applying for.</h2>
-            </div>
-            <Link href="/#projects" className="text-sm font-semibold text-[#7c3aed] hover:underline flex-shrink-0">
-              See all projects →
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              {
-                title: "Toausib Consulting",
-                type: "Consulting",
-                image: "/images/projects/toausib-consulting.jpg",
-                link: "https://toausibconsulting.com/",
-              },
-              {
-                title: "Omicron Gadgets",
-                type: "E-Commerce",
-                image: "/images/projects/omicron-gadgets.jpg",
-                link: "https://omicrongadget.vercel.app/",
-              },
-              {
-                title: "PhotoStudio.ng",
-                type: "Web Application",
-                image: "/images/projects/photostudio-ng.jpg",
-                link: "https://www.photostudio.ng",
-              },
-            ].map(({ title, type, image, link }) => (
-              <a
-                key={title}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block border border-gray-200 rounded-xl overflow-hidden hover:border-gray-300 hover:shadow-md transition-all duration-200 bg-white"
-              >
-                <div className="relative h-44 bg-gray-100 overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={title}
-                    fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="px-5 py-4">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">{type}</p>
-                  <p className="text-sm font-bold text-black">{title}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* What you get + Who we're looking for */}
       <section className="py-20 px-6 lg:px-8 border-b border-gray-200 bg-gray-50">
@@ -353,7 +293,7 @@ export default function ApplyPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { step: "01", title: "Apply", body: "Fill the form below. Takes about 3 minutes." },
-              { step: "02", title: "We review", body: "Every application is read. Selected applicants get a call to talk things through." },
+              { step: "02", title: "We review", body: "Every application is read. Selected applicants will be contacted." },
               { step: "03", title: "We build", body: "Five businesses chosen. We get to work." },
             ].map(({ step, title, body }) => (
               <div key={step}>
