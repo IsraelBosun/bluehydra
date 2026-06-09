@@ -360,12 +360,12 @@ export default function ApplyPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="name" className={labelClass}>Your name <span className="text-red-400 font-normal">*</span></label>
-                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={getInputClass('name')} placeholder="Jane Smith" />
+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={getInputClass('name')} placeholder="Amaka Okonkwo" />
                       {errors.name && <p className="text-xs text-red-500 mt-1.5">{errors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="businessName" className={labelClass}>Business name <span className="text-red-400 font-normal">*</span></label>
-                      <input type="text" id="businessName" name="businessName" value={formData.businessName} onChange={handleChange} className={getInputClass('businessName')} placeholder="Acme Co." />
+                      <input type="text" id="businessName" name="businessName" value={formData.businessName} onChange={handleChange} className={getInputClass('businessName')} placeholder="Chidi Ventures" />
                       {errors.businessName && <p className="text-xs text-red-500 mt-1.5">{errors.businessName}</p>}
                     </div>
                   </div>
