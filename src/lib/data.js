@@ -1,6 +1,6 @@
 // Centralized data for the entire website
 export const companyData = {
-  name: "Bluehydra Labs",
+  name: "Bluehydra",
   tagline: "Engineering Excellence, Delivered",
   description: "We build high-performance web and mobile applications that scale with your business.",
   
@@ -148,6 +148,7 @@ export const companyData = {
     { label: "Home", href: "/" },
     { label: "Services", href: "/#services" },
     { label: "Projects", href: "/#projects" },
+    { label: "Apply", href: "/apply" },
     { label: "Contact", href: "/contact" }
   ],
 

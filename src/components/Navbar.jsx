@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { companyData } from '@/lib/data';
-import LogoMark from '@/components/LogoMark';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled]             = useState(false);
@@ -36,10 +35,9 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2.5 group flex-shrink-0">
-              <LogoMark size={32} />
-              <span className="font-bold text-base tracking-tight text-black">
-                {companyData.name}
+            <Link href="/" className="flex items-center flex-shrink-0">
+              <span className="font-black text-lg tracking-tight">
+                <span className="text-black">Blue</span><span className="text-[#7c3aed]">hydra</span>
               </span>
             </Link>
 
@@ -94,9 +92,10 @@ export default function Navbar() {
 
           {/* Top row */}
           <div className="flex items-center justify-between mb-10">
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2.5">
-              <LogoMark size={32} />
-              <span className="font-bold text-base tracking-tight text-black">{companyData.name}</span>
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+              <span className="font-black text-lg tracking-tight">
+                <span className="text-black">Blue</span><span className="text-[#7c3aed]">hydra</span>
+              </span>
             </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}

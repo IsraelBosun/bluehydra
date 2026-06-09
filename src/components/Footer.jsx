@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { companyData } from '@/lib/data';
-import LogoMark from '@/components/LogoMark';
 
 export default function Footer() {
   return (
@@ -11,10 +10,9 @@ export default function Footer() {
 
           {/* Company */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2.5 mb-5">
-              <LogoMark size={32} />
-              <span className="font-bold text-base tracking-tight text-white">
-                {companyData.name}
+            <div className="mb-5">
+              <span className="font-black text-lg tracking-tight">
+                <span className="text-white">Blue</span><span className="text-[#a78bfa]">hydra</span>
               </span>
             </div>
             <p className="text-gray-200 text-sm mb-2">{companyData.tagline}</p>
