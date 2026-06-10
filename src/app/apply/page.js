@@ -80,16 +80,6 @@ function useCountdown(deadline) {
 
 const pad = (n) => String(n).padStart(2, '0');
 
-function isValidUrl(str) {
-  if (!str) return true;
-  try {
-    const url = new URL(str);
-    return url.protocol === 'http:' || url.protocol === 'https:';
-  } catch {
-    return false;
-  }
-}
-
 function validateForm(data) {
   const errors = {};
   if (!data.name.trim()) errors.name = 'This field is required';
@@ -106,15 +96,6 @@ function validateForm(data) {
     errors.email = 'This field is required';
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     errors.email = 'Enter a valid email address';
-  }
-  if (data.existingWebsite && !isValidUrl(data.existingWebsite)) {
-    errors.existingWebsite = 'Enter a valid URL — include https://';
-  }
-  if (!data.socialPlatform) errors.socialPlatform = 'Select a platform';
-  if (!data.socialLink.trim()) {
-    errors.socialLink = 'This field is required';
-  } else if (!isValidUrl(data.socialLink)) {
-    errors.socialLink = 'Enter a valid URL — include https://';
   }
   return errors;
 }
@@ -378,13 +359,13 @@ export default function ApplyPage() {
 
                   <div>
                     <label htmlFor="existingWebsite" className={labelClass}>Do you have a website already?</label>
-                    <input type="text" id="existingWebsite" name="existingWebsite" value={formData.existingWebsite} onChange={handleChange} className={getInputClass('existingWebsite')} placeholder="https://yoursite.com — or leave blank" />
+                    <input type="text" id="existingWebsite" name="existingWebsite" value={formData.existingWebsite} onChange={handleChange} className={getInputClass('existingWebsite')} placeholder="yoursite.com — or leave blank" />
                     {errors.existingWebsite && <p className="text-xs text-red-500 mt-1.5">{errors.existingWebsite}</p>}
                   </div>
 
                   <div>
                     <label className={labelClass}>
-                      Social media presence <span className="text-red-400 font-normal">*</span>
+                      Social media presence
                     </label>
                     <div className="grid grid-cols-[156px_1fr] gap-3">
                       <div>
@@ -397,7 +378,7 @@ export default function ApplyPage() {
                         {errors.socialPlatform && <p className="text-xs text-red-500 mt-1.5">{errors.socialPlatform}</p>}
                       </div>
                       <div>
-                        <input type="text" name="socialLink" value={formData.socialLink} onChange={handleChange} className={getInputClass('socialLink')} placeholder="https://instagram.com/yourbusiness" />
+                        <input type="text" name="socialLink" value={formData.socialLink} onChange={handleChange} className={getInputClass('socialLink')} placeholder="instagram.com/yourbusiness — or leave blank" />
                         {errors.socialLink && <p className="text-xs text-red-500 mt-1.5">{errors.socialLink}</p>}
                       </div>
                     </div>
