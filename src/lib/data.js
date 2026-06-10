@@ -154,9 +154,10 @@ export const companyData = {
 
   footerLinks: {
     company: [
-      { label: "About", href: "#about" },
-      { label: "Services", href: "#services" },
-      { label: "Projects", href: "#projects" }
+      { label: "About", href: "/about" },
+      { label: "Services", href: "/#services" },
+      { label: "Projects", href: "/#projects" },
+      { label: "Apply", href: "/apply" }
     ],
     contact: [
       { label: "Get in Touch", href: "/contact" },

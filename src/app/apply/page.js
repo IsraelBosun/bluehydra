@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: "When will I hear back?",
-    a: "Within 3 days of applying.",
+    a: "Within 3 days of the closing date.",
   },
   {
     q: "What if I already have a website?",
