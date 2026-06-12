@@ -8,24 +8,12 @@ const SECTIONS = [
   { id: 'brand',         label: 'Brand' },
   { id: 'content',       label: 'Content' },
   { id: 'contact',       label: 'Contact' },
-  { id: 'functionality', label: 'Features' },
+  { id: 'functionality', label: 'Anything else?' },
 ];
 
-const FEATURES = [
-  { id: 'contact_form',      label: 'Contact form',                        hint: 'Visitors fill a form to reach you' },
-  { id: 'whatsapp_chat',     label: 'WhatsApp click-to-chat button',       hint: 'One tap to message you on WhatsApp' },
-  { id: 'booking',           label: 'Online booking / appointments',       hint: 'Customers book a time slot directly' },
-  { id: 'shop',              label: 'Online shop with payments (Paystack)', hint: 'Customers buy products directly on your site' },
-  { id: 'gallery',           label: 'Gallery / portfolio',                 hint: 'Showcase your work or products visually' },
-  { id: 'testimonials_section', label: 'Testimonials section',             hint: 'Display customer reviews and stories' },
-  { id: 'other',             label: 'Something else',                      hint: 'Describe it below' },
-];
 
 function initForm(brief) {
   const app = brief.founders_five_applications || {};
-  const defaultFeatures = Object.fromEntries(
-    FEATURES.map(f => [f.id, { enabled: false, details: '' }])
-  );
   return {
     business_description:    brief.business_description    || app.business_description || '',
     ideal_customer:          brief.ideal_customer          || '',
@@ -66,9 +54,7 @@ function initForm(brief) {
           photo_urls: p.photo_urls || (p.photo_url ? [p.photo_url] : []),
         }))
       : Array.from({ length: 5 }, () => ({ name: '', price: '', description: '', photo_urls: [] })),
-    features: (brief.features && Object.keys(brief.features).length)
-      ? { ...defaultFeatures, ...brief.features }
-      : defaultFeatures,
+    other_requests: brief.other_requests || '',
   };
 }
 
@@ -113,17 +99,6 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
   function handleChange(field, value) {
     setForm(prev => ({ ...prev, [field]: value }));
     scheduleAutosave({ [field]: value });
-  }
-
-  function handleFeature(id, key, value) {
-    setForm(prev => {
-      const updatedFeatures = {
-        ...prev.features,
-        [id]: { ...(prev.features[id] || { enabled: false, details: '' }), [key]: value },
-      };
-      scheduleAutosave({ features: updatedFeatures });
-      return { ...prev, features: updatedFeatures };
-    });
   }
 
   function handleProduct(index, field, value) {
@@ -363,7 +338,7 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
             </p>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-10 space-y-4">
               {[
-                ['Saves automatically', 'Your answers save as you type. Come back anytime using this link.'],
+                ['Saves automatically', 'Your answers save as you type — pick up where you left off if you need a break.'],
                 ['Have your photos ready', 'Gather photos of your work, products, or space — the more the better.'],
                 ['No content, no site', 'We build from what you give us. The more you share, the better the site.'],
               ].map(([title, body]) => (
@@ -838,42 +813,14 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
 
   function renderFunctionality() {
     return (
-      <div className="space-y-3">
-        <p className="text-sm text-gray-500 leading-relaxed pb-2">
-          Tick everything you want on your site. We'll guide you on what makes sense during the kickoff call.
-        </p>
-        {FEATURES.map(feat => {
-          const state = form.features[feat.id] || { enabled: false, details: '' };
-          return (
-            <div key={feat.id}
-              className={`rounded-xl border transition-all ${state.enabled ? 'border-[#7c3aed]/30 bg-[#7c3aed]/[0.03]' : 'border-gray-200 bg-white'}`}>
-              <button type="button"
-                onClick={() => handleFeature(feat.id, 'enabled', !state.enabled)}
-                className="w-full flex items-start gap-4 px-4 py-4 text-left">
-                <div className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors
-                  ${state.enabled ? 'border-[#7c3aed] bg-[#7c3aed]' : 'border-gray-300 bg-white'}`}>
-                  {state.enabled && (
-                    <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  )}
-                </div>
-                <div>
-                  <p className={`text-sm font-semibold ${state.enabled ? 'text-[#7c3aed]' : 'text-black'}`}>{feat.label}</p>
-                  {feat.hint && <p className="text-xs text-gray-400 mt-0.5">{feat.hint}</p>}
-                </div>
-              </button>
-              {state.enabled && (
-                <div className="px-4 pb-4">
-                  <textarea rows={2} className={`${textarea} text-xs`}
-                    value={state.details}
-                    onChange={e => handleFeature(feat.id, 'details', e.target.value)}
-                    placeholder="Tell us more about how you want this to work (optional)..." />
-                </div>
-              )}
-            </div>
-          );
-        })}
+      <div className="space-y-6">
+        <div className={fieldWrap}>
+          <label className={label}>Is there anything else you'd like on your site?</label>
+          <p className={hint}>Any features, ideas, or requests — big or small. If you're not sure, just describe what you want visitors to be able to do.</p>
+          <textarea rows={6} className={textarea} value={form.other_requests}
+            onChange={e => handleChange('other_requests', e.target.value)}
+            placeholder="e.g. I'd like a WhatsApp chat button, a gallery of my past work, and a booking form for consultations..." />
+        </div>
       </div>
     );
   }
