@@ -26,6 +26,7 @@ const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_PASS = process.env.GMAIL_APP_PASSWORD;
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY;
+const SITE_URL = 'https://www.bluehydralabs.com';
 
 // ─── Put selected applicant emails here before running "selected" / "not-selected" ───
 const SELECTED = [
@@ -49,6 +50,48 @@ function fetchApplicants() {
       let data = '';
       res.on('data', chunk => (data += chunk));
       res.on('end', () => resolve(JSON.parse(data)));
+    }).on('error', reject);
+  });
+}
+
+function getOrCreateBriefToken(applicationId) {
+  return new Promise((resolve, reject) => {
+    const getUrl = `${SUPABASE_URL}/rest/v1/founders_five_briefs?select=token&application_id=eq.${applicationId}`;
+    https.get(getUrl, {
+      headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
+    }, res => {
+      let d = '';
+      res.on('data', c => (d += c));
+      res.on('end', () => {
+        const rows = JSON.parse(d);
+        if (rows.length) return resolve(rows[0].token);
+        // Insert new brief row
+        const body = JSON.stringify({ application_id: applicationId });
+        const url = new URL(`${SUPABASE_URL}/rest/v1/founders_five_briefs`);
+        const options = {
+          hostname: url.hostname,
+          path: url.pathname,
+          method: 'POST',
+          headers: {
+            apikey: SUPABASE_KEY,
+            Authorization: `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(body),
+            Prefer: 'return=representation',
+          },
+        };
+        const req = https.request(options, res2 => {
+          let d2 = '';
+          res2.on('data', c => (d2 += c));
+          res2.on('end', () => {
+            const inserted = JSON.parse(d2);
+            resolve(inserted[0].token);
+          });
+        });
+        req.on('error', reject);
+        req.write(body);
+        req.end();
+      });
     }).on('error', reject);
   });
 }
@@ -149,7 +192,7 @@ function acknowledgeHtml(name) {
 </html>`;
 }
 
-function selectedHtml(name) {
+function selectedHtml(name, link) {
   return `<!DOCTYPE html>
 <html>
 <body style="margin:0;padding:0;background:#f9f9f9;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
@@ -166,30 +209,34 @@ function selectedHtml(name) {
           <td style="padding:40px 40px 32px;">
             <p style="margin:0 0 20px;font-size:15px;color:#111827;line-height:1.6;">Hi ${name},</p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              We have some great news - <strong>your business has been selected</strong> for the Founders' Five, Cohort 01.
+              Congratulations — <strong>you've been selected as one of the Founders' Five</strong>. We went through every application carefully, and yours stood out.
             </p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              Out of all the applications we received, yours stood out. We're excited to build your website.
+              We're ready to start building your site right now. All we need from you is a short brief — your story, what you offer, how you want things to look and feel.
+            </p>
+            <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
+              <strong>The sooner you fill this in, the sooner we start.</strong> We're working through briefs in the order we receive them — every day counts.
             </p>
             <p style="margin:0 0 32px;font-size:15px;color:#374151;line-height:1.7;">
-              We'll be reaching out via WhatsApp shortly to kick things off. Keep an eye on your messages.
+              Click the button below to open your personal link and get it done today.
             </p>
             <table cellpadding="0" cellspacing="0">
               <tr>
                 <td style="background:#7c3aed;border-radius:8px;">
-                  <a href="https://wa.me/2349133105749" style="display:inline-block;padding:14px 28px;font-size:13px;font-weight:700;color:#ffffff;text-decoration:none;letter-spacing:0.5px;">
-                    Message us on WhatsApp
+                  <a href="${link}" style="display:inline-block;padding:14px 28px;font-size:13px;font-weight:700;color:#ffffff;text-decoration:none;letter-spacing:0.5px;">
+                    Fill in your brief →
                   </a>
                 </td>
               </tr>
             </table>
+            <p style="margin:20px 0 0;font-size:12px;color:#9ca3af;">Or copy this link: ${link}</p>
           </td>
         </tr>
         <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #f3f4f6;margin:0;" /></td></tr>
         <tr>
           <td style="padding:24px 40px 32px;">
-            <p style="margin:0 0 4px;font-size:13px;color:#6b7280;line-height:1.6;">The Bluehydra Team</p>
-            <p style="margin:0;font-size:12px;color:#9ca3af;">bluehydralabs.com</p>
+            <p style="margin:0 0 4px;font-size:13px;color:#6b7280;line-height:1.6;">Questions? Message us on <a href="https://wa.me/2349133105749" style="color:#7c3aed;text-decoration:none;">WhatsApp</a>.</p>
+            <p style="margin:4px 0 0;font-size:12px;color:#9ca3af;">The Bluehydra Team · bluehydralabs.com</p>
           </td>
         </tr>
       </table>
@@ -298,8 +345,10 @@ async function main() {
       subject = "We've received your application - Founders' Five, Cohort 01";
       html = acknowledgeHtml(name);
     } else if (mode === 'selected') {
-      subject = "You've been selected - Founders' Five, Cohort 01";
-      html = selectedHtml(name);
+      const token = await getOrCreateBriefToken(applicant.id);
+      const link = `${SITE_URL}/onboarding/${token}`;
+      subject = "You're in — Founders' Five, Cohort 01";
+      html = selectedHtml(name, link);
     } else {
       subject = "Your Founders' Five application - Cohort 01";
       html = notSelectedHtml(name);
