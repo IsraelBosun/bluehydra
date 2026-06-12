@@ -323,7 +323,7 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
     return (
       <div className="min-h-screen bg-[#09051e] flex flex-col">
         <div className="px-6 py-5 border-b border-white/5">
-          <p className="text-xs font-bold tracking-widest uppercase text-[#7c3aed]">Bluehydra</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-white">Bluehydra</p>
         </div>
         <div className="flex-1 flex items-center justify-center px-6 py-16">
           <div className="max-w-lg w-full">
@@ -341,6 +341,7 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
                 ['Saves automatically', 'Your answers save as you type — pick up where you left off if you need a break.'],
                 ['Have your photos ready', 'Gather photos of your work, products, or space — the more the better.'],
                 ['No content, no site', 'We build from what you give us. The more you share, the better the site.'],
+                ['First brief in, first site built', 'We work through briefs in the order we receive them. The sooner you submit, the sooner we start on yours.'],
               ].map(([title, body]) => (
                 <div key={title} className="flex gap-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#7c3aed] mt-2 flex-shrink-0" />
@@ -371,7 +372,7 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
     return (
       <div className="min-h-screen bg-[#09051e] flex flex-col">
         <div className="px-6 py-5 border-b border-white/5">
-          <p className="text-xs font-bold tracking-widest uppercase text-[#7c3aed]">Bluehydra</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-white">Bluehydra</p>
         </div>
         <div className="flex-1 flex items-center justify-center px-6 py-16">
           <div className="max-w-lg w-full">
