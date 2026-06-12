@@ -73,8 +73,9 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
   const [saveState, setSaveState]     = useState('idle');
   const [uploading, setUploading]     = useState({});
   const [signedUrls, setSignedUrls]   = useState(initialSignedUrls);
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [submitting, setSubmitting]   = useState(false);
+  const [showConfirm, setShowConfirm]       = useState(false);
+  const [domainAgreed, setDomainAgreed]     = useState(false);
+  const [submitting, setSubmitting]         = useState(false);
   const saveTimer = useRef(null);
   const sectionKey = useRef(0);
 
@@ -933,7 +934,7 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
       {/* Confirm modal */}
       {showConfirm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-6">
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => !submitting && setShowConfirm(false)} />
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => { if (!submitting) { setShowConfirm(false); setDomainAgreed(false); } }} />
           <div className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8" style={{ animation: 'fadeIn 0.2s ease-out' }}>
             <div className="w-10 h-10 rounded-xl bg-[#7c3aed]/10 flex items-center justify-center mb-5">
               <svg className="w-5 h-5 text-[#7c3aed]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -944,13 +945,22 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
             <p className="text-sm text-gray-500 leading-relaxed mb-4">
               Once you submit, your brief is <strong className="text-black">locked and cannot be edited</strong>. Go back through each section and make sure everything is correct — your details, photos, and any requests.
             </p>
-            <p className="text-sm text-gray-500 leading-relaxed mb-7">
-              If you need to make changes after submitting, you'll have to message us directly on WhatsApp.
-            </p>
+            <button
+              type="button"
+              onClick={() => setDomainAgreed(v => !v)}
+              className={`w-full flex items-start gap-3 px-4 py-4 rounded-xl border text-left transition-all mb-7 ${domainAgreed ? 'border-[#7c3aed] bg-[#7c3aed]/5' : 'border-gray-200 hover:border-gray-300'}`}
+            >
+              <div className={`w-5 h-5 rounded border-2 flex-shrink-0 mt-0.5 flex items-center justify-center transition-colors ${domainAgreed ? 'border-[#7c3aed] bg-[#7c3aed]' : 'border-gray-300'}`}>
+                {domainAgreed && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>}
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                I understand I need to purchase a domain name for my site <span className="text-black font-medium">(~₦5,000–₦15,000/yr)</span>. I can buy it from anywhere — Namecheap, GoDaddy, or any registrar. Bluehydra does not profit from this; they just need me to own one to point to my site.
+              </p>
+            </button>
             <div className="flex gap-3">
               <button
                 type="button"
-                onClick={() => setShowConfirm(false)}
+                onClick={() => { setShowConfirm(false); setDomainAgreed(false); }}
                 disabled={submitting}
                 className="flex-1 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-colors disabled:opacity-50"
               >
@@ -959,8 +969,8 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
               <button
                 type="button"
                 onClick={handleSubmit}
-                disabled={submitting}
-                className="flex-1 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+                disabled={submitting || !domainAgreed}
+                className="flex-1 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {submitting ? (
                   <>
