@@ -23,7 +23,7 @@ export async function GET(request, { params }) {
   const signedUrls = {};
   for (const path of paths) {
     const { data } = await supabase.storage
-      .from('founders-briefs')
+      .from('founders_five_briefs')
       .createSignedUrl(path, 3600 * 24);
     if (data) signedUrls[path] = data.signedUrl;
   }

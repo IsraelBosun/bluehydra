@@ -33,13 +33,13 @@ export async function POST(request, { params }) {
   const buffer = await file.arrayBuffer();
 
   const { error: uploadError } = await supabase.storage
-    .from('founders-briefs')
+    .from('founders_five_briefs')
     .upload(path, buffer, { contentType: file.type, upsert: false });
 
   if (uploadError) return Response.json({ error: uploadError.message }, { status: 500 });
 
   const { data: signed } = await supabase.storage
-    .from('founders-briefs')
+    .from('founders_five_briefs')
     .createSignedUrl(path, 3600 * 24);
 
   return Response.json({ path, signedUrl: signed?.signedUrl });
