@@ -939,9 +939,12 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
               </svg>
             </div>
-            <h3 className="text-lg font-bold text-black mb-2">Ready to submit?</h3>
+            <h3 className="text-lg font-bold text-black mb-2">Before you submit — check everything.</h3>
+            <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              Once you submit, your brief is <strong className="text-black">locked and cannot be edited</strong>. Go back through each section and make sure everything is correct — your details, photos, and any requests.
+            </p>
             <p className="text-sm text-gray-500 leading-relaxed mb-7">
-              Once you submit, your brief is locked. You can still view it from this link, but to make changes you'll need to message us directly.
+              If you need to make changes after submitting, you'll have to message us directly on WhatsApp.
             </p>
             <div className="flex gap-3">
               <button
