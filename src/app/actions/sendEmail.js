@@ -1,22 +1,25 @@
 "use server";
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  family: 4,
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
 
 export async function sendContactEmail(formData) {
-  // Check if API key exists
-  if (!process.env.RESEND_API_KEY) {
-    console.error("ERROR: RESEND_API_KEY is missing from environment variables.");
-    return { success: false, error: "Configuration Error" };
-  }
+  const { name, email, company, phone, projectType, budget, message, timeline } = formData;
 
   try {
-    const { name, email, company, phone, projectType, budget, message, timeline } = formData;
-
-    const { data, error } = await resend.emails.send({
-      from: 'BlueHydra Inquiry <onboarding@resend.dev>', // Keep this exactly as is for testing
-      to: ['bluehydra001@gmail.com'],
-      subject: `New Project: ${projectType} from ${name}`,
+    await transporter.sendMail({
+      from: `"Bluehydra" <${process.env.GMAIL_USER}>`,
+      to: process.env.GMAIL_USER,
+      subject: `New Project Inquiry — ${projectType} from ${name}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333;">
           <h2>New Project Inquiry</h2>
@@ -36,14 +39,9 @@ export async function sendContactEmail(formData) {
       `,
     });
 
-    if (error) {
-      console.error("Resend API Error:", error);
-      return { success: false, error: error.message };
-    }
-
     return { success: true };
   } catch (err) {
-    console.error("Server Action Exception:", err);
-    return { success: false, error: "Internal Server Error" };
+    console.error("Gmail SMTP error:", err);
+    return { success: false, error: "Failed to send email" };
   }
 }

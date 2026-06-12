@@ -77,3 +77,17 @@ This project runs on a corporate bank workstation with enterprise endpoint prote
 
 ### Safe Alternatives for File Writing
 When writing multi-line source files (JSX, JS, CSS, etc.), use the dedicated **Write** and **Edit** tools directly — never route file content through shell heredocs, encoded strings, or temp scripts. The Write/Edit tools write files directly without spawning suspicious processes.
+
+## Founders' Five Campaign Emails
+
+`send-emails.js` (root) handles bulk email for the Founders' Five programme. Usage:
+```bash
+node send-emails.js acknowledge   # acknowledgement to all who haven't received one yet
+node send-emails.js selected      # "you're in" — add winner emails to SELECTED array first
+node send-emails.js not-selected  # "not this time" — everyone not in SELECTED array
+```
+
+- Applicants are stored in Supabase table `founders_five_applications`. Credentials are in `.env.local`.
+- Sent status is tracked via `acknowledge_sent_at` and `results_sent_at` columns — the script skips anyone already emailed, safe to re-run.
+- To check who is new / not yet emailed, query Supabase directly: `acknowledge_sent_at=is.null`.
+- **SMTP is blocked on the corporate network** — `node send-emails.js` will fail. Use PowerShell `Send-MailMessage` on port 587 as a fallback, or run from a personal hotspot. If a Resend API key is available, update the script to use Resend over HTTPS instead (always works on this network).
