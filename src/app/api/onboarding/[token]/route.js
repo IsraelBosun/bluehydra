@@ -18,6 +18,7 @@ export async function GET(request, { params }) {
     brief.brand_guide_url,
     ...(brief.testimonial_urls || []),
     ...(brief.photo_urls || []),
+    ...(brief.products || []).flatMap(p => p.photo_urls || []),
   ].filter(Boolean);
 
   const signedUrls = {};
