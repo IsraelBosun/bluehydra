@@ -35,10 +35,7 @@ export async function POST(request, { params }) {
   const founderName = app?.name || 'Unknown';
   const businessName = app?.business_name || 'Unknown';
 
-  const enabledFeatures = Object.entries(brief.features || {})
-    .filter(([, v]) => v?.enabled)
-    .map(([k]) => k.replace(/_/g, ' '))
-    .join(', ') || 'None selected';
+  const otherRequests = brief.other_requests || '—';
 
   try {
     await transporter.sendMail({
@@ -82,8 +79,8 @@ export async function POST(request, { params }) {
             <p style="margin:0 0 6px;font-size:13px;"><strong>WhatsApp:</strong> ${brief.whatsapp || '—'}</p>
             <p style="margin:0 0 20px;font-size:13px;"><strong>Address:</strong> ${brief.online_only ? 'Online only' : (brief.address || '—')}</p>
 
-            <h3 style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7c3aed;margin:0 0 12px;">Features</h3>
-            <p style="margin:0;font-size:13px;">${enabledFeatures}</p>
+            <h3 style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7c3aed;margin:0 0 12px;">Anything else?</h3>
+            <p style="margin:0;font-size:13px;">${otherRequests}</p>
           </div>
         </div>
       `,
