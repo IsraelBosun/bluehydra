@@ -339,7 +339,7 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
             </p>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-10 space-y-4">
               {[
-                ['Saves automatically', 'Your answers save as you type — pick up where you left off if you need a break.'],
+                ['Saves automatically', 'Everything saves as you type — no need to worry about losing your progress.'],
                 ['Have your photos ready', 'Gather photos of your work, products, or space — the more the better.'],
                 ['No content, no site', 'We build from what you give us. The more you share, the better the site.'],
                 ['First brief in, first site built', 'We work through briefs in the order we receive them. The sooner you submit, the sooner we start on yours.'],
