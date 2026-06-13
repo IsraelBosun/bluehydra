@@ -209,13 +209,13 @@ function selectedHtml(name, link) {
           <td style="padding:40px 40px 32px;">
             <p style="margin:0 0 20px;font-size:15px;color:#111827;line-height:1.6;">Hi ${name},</p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              Congratulations — <strong>you've been selected as one of the Founders' Five</strong>. We went through every application carefully, and yours stood out.
+              Congratulations. <strong>You've been selected as one of the Founders' Five.</strong> We went through every application carefully and yours stood out.
             </p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
               We're ready to start building your site right now. All we need from you is a short brief — your story, what you offer, how you want things to look and feel.
             </p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              <strong>The sooner you fill this in, the sooner we start.</strong> We're working through briefs in the order we receive them — every moment counts.
+              <strong>The sooner you fill this in, the sooner we start.</strong> We're working through briefs in the order we receive them. Every moment counts.
             </p>
             <p style="margin:0 0 32px;font-size:15px;color:#374151;line-height:1.7;">
               Click the button below to open your personal link and get it done today.
@@ -235,8 +235,9 @@ function selectedHtml(name, link) {
         <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #f3f4f6;margin:0;" /></td></tr>
         <tr>
           <td style="padding:24px 40px 32px;">
-            <p style="margin:0 0 4px;font-size:13px;color:#6b7280;line-height:1.6;">Questions? Message us on <a href="https://wa.me/2349133105749" style="color:#7c3aed;text-decoration:none;">WhatsApp</a>.</p>
-            <p style="margin:4px 0 0;font-size:12px;color:#9ca3af;">The Bluehydra Team · bluehydralabs.com</p>
+            <p style="margin:0 0 6px;font-size:13px;color:#6b7280;line-height:1.6;">Questions? Message us on <a href="https://wa.me/2349133105749" style="color:#7c3aed;text-decoration:none;">WhatsApp</a>.</p>
+            <p style="margin:0 0 6px;font-size:13px;color:#6b7280;line-height:1.6;">Follow us on <a href="https://www.instagram.com/bluehydradev/" style="color:#7c3aed;text-decoration:none;">Instagram</a>.</p>
+            <p style="margin:0;font-size:12px;color:#9ca3af;">The Bluehydra Team &middot; bluehydralabs.com</p>
           </td>
         </tr>
       </table>
@@ -263,22 +264,22 @@ function notSelectedHtml(name) {
           <td style="padding:40px 40px 32px;">
             <p style="margin:0 0 20px;font-size:15px;color:#111827;line-height:1.6;">Hi ${name},</p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              Thank you for applying to the Founders' Five. We genuinely enjoyed reading your application.
+              Thank you for applying to the Founders' Five. We genuinely enjoyed reading your application and the decision was tough. Every business that applied had a real story worth telling.
             </p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              Unfortunately, we weren't able to include you in Cohort 01. The decision was tough - every application we received came from a real business with a real story.
+              We weren't able to include you in Cohort 01, but we don't want this to be the end.
             </p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              This isn't the end though. Cohort 02 is coming, and we'd love to stay in touch. If you'd like to talk through other options in the meantime, reach out on WhatsApp.
+              As a thank you for applying, we're offering you <strong>50% off any of our website packages</strong>. This offer is exclusively for Cohort 01 applicants and won't be available after June. Message us on WhatsApp to claim it and we'll get started.
             </p>
             <p style="margin:0 0 32px;font-size:15px;color:#374151;line-height:1.7;">
-              Thank you again for trusting us with your story.
+              Cohort 02 is also coming. Keep an eye on our Instagram for the announcement.
             </p>
-            <table cellpadding="0" cellspacing="0">
+            <table cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
               <tr>
-                <td style="background:#09051e;border-radius:8px;">
+                <td style="background:#7c3aed;border-radius:8px;">
                   <a href="https://wa.me/2349133105749" style="display:inline-block;padding:14px 28px;font-size:13px;font-weight:700;color:#ffffff;text-decoration:none;letter-spacing:0.5px;">
-                    Stay in touch on WhatsApp
+                    Claim your 50% discount
                   </a>
                 </td>
               </tr>
@@ -288,8 +289,8 @@ function notSelectedHtml(name) {
         <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #f3f4f6;margin:0;" /></td></tr>
         <tr>
           <td style="padding:24px 40px 32px;">
-            <p style="margin:0 0 4px;font-size:13px;color:#6b7280;line-height:1.6;">The Bluehydra Team</p>
-            <p style="margin:0;font-size:12px;color:#9ca3af;">bluehydralabs.com</p>
+            <p style="margin:0 0 6px;font-size:13px;color:#6b7280;line-height:1.6;">Follow us on <a href="https://www.instagram.com/bluehydradev/" style="color:#7c3aed;text-decoration:none;">Instagram</a> for updates on Cohort 02.</p>
+            <p style="margin:0;font-size:12px;color:#9ca3af;">The Bluehydra Team &middot; bluehydralabs.com</p>
           </td>
         </tr>
       </table>

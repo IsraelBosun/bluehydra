@@ -90,4 +90,4 @@ node send-emails.js not-selected  # "not this time" — everyone not in SELECTED
 - Applicants are stored in Supabase table `founders_five_applications`. Credentials are in `.env.local`.
 - Sent status is tracked via `acknowledge_sent_at` and `results_sent_at` columns — the script skips anyone already emailed, safe to re-run.
 - To check who is new / not yet emailed, query Supabase directly: `acknowledge_sent_at=is.null`.
-- **SMTP is blocked on the corporate network** — `node send-emails.js` will fail. Use PowerShell `Send-MailMessage` on port 587 as a fallback, or run from a personal hotspot. If a Resend API key is available, update the script to use Resend over HTTPS instead (always works on this network).
+- Run `node send-emails.js` directly — SMTP works on this network.
