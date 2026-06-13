@@ -30,7 +30,16 @@ const SITE_URL = 'https://www.bluehydralabs.com';
 
 // ─── Put selected applicant emails here before running "selected" / "not-selected" ───
 const SELECTED = [
-  // 'email@example.com',
+  'glamorah1@gmail.com',
+  'stuchewrld.inc@gmail.com',
+  'ademfinancialconsutling@gmail.com',
+  'bolarinde.samuel@gmail.com',
+  'ogbeidelois001@gmail.com',
+  'chisom@smartstartssolutions.com',
+  'ojonugwadanieluwada@gmail.com',
+  'aishatanaha@gmail.com',
+  'oluwatoyinjohn1000@gmail.com',
+  'joshuaadedeji2002@gmail.com',
 ];
 
 // ─── Supabase helpers ──────────────────────────────────────────────────────────
