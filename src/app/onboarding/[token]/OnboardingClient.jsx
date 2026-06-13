@@ -391,8 +391,8 @@ export default function OnboardingClient({ brief, token, initialSignedUrls = {} 
             </p>
             <div className="space-y-5 mb-10">
               {[
-                ['Within 24 hours', 'Expect a message from us on WhatsApp — we\'ll review your brief and reach out if we have any questions.'],
-                ['Then we build', 'Once we\'re aligned, we get to work. Expect your site within 2 days of kickoff.'],
+                ['We\'ve got everything', 'We\'ve received your brief and we\'re getting to work.'],
+                ['We\'ll be in touch', 'Expect a message from us on WhatsApp.'],
               ].map(([title, body], i) => (
                 <div key={i} className="flex gap-4">
                   <div className="w-6 h-6 rounded-full border border-[#7c3aed]/40 text-[#7c3aed] text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">

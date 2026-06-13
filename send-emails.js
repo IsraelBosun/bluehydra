@@ -215,7 +215,7 @@ function selectedHtml(name, link) {
               We're ready to start building your site right now. All we need from you is a short brief — your story, what you offer, how you want things to look and feel.
             </p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              <strong>The sooner you fill this in, the sooner we start.</strong> We're working through briefs in the order we receive them — every day counts.
+              <strong>The sooner you fill this in, the sooner we start.</strong> We're working through briefs in the order we receive them — every moment counts.
             </p>
             <p style="margin:0 0 32px;font-size:15px;color:#374151;line-height:1.7;">
               Click the button below to open your personal link and get it done today.
