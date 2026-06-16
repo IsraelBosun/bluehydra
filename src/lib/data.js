@@ -148,6 +148,8 @@ export const companyData = {
     { label: "Home", href: "/" },
     { label: "Services", href: "/#services" },
     { label: "Projects", href: "/#projects" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Refer & Earn", href: "/refer" },
     { label: "Apply", href: "/apply" },
     { label: "Contact", href: "/contact" }
   ],
@@ -157,6 +159,8 @@ export const companyData = {
       { label: "About", href: "/about" },
       { label: "Services", href: "/#services" },
       { label: "Projects", href: "/#projects" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Refer & Earn", href: "/refer" },
       { label: "Apply", href: "/apply" }
     ],
     contact: [
