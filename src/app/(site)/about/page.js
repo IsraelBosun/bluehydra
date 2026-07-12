@@ -126,7 +126,7 @@ export default function AboutPage() {
             </p>
           </div>
           <Link
-            href="/#projects"
+            href="/portfolio"
             className="inline-flex items-center gap-2 bg-[#7c3aed] text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#6d28d9] transition-colors duration-200 flex-shrink-0"
           >
             View Projects
@@ -154,7 +154,7 @@ export default function AboutPage() {
               Start a Project
             </Link>
             <Link
-              href="/#projects"
+              href="/portfolio"
               className="inline-flex items-center justify-center gap-2 border border-gray-300 text-black text-sm font-semibold px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors duration-200"
             >
               See Our Work

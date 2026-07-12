@@ -110,7 +110,7 @@ function buildReferralEmail(name, slug) {
         <!-- Deadline -->
         <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:14px 18px;margin:0 0 24px;">
           <p style="margin:0;font-size:13px;font-weight:600;color:#92400e;">
-            ⏰ Offer ends June 30, 2026. Refer early, get paid early.
+            ⏰ Offer ends July 31, 2026. Refer early, get paid early.
           </p>
         </div>
 

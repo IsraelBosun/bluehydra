@@ -1,7 +1,10 @@
 "use client";
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { companyData } from '@/lib/data';
+
+const FEATURED_COUNT = 5;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -47,7 +50,7 @@ export default function ProjectsShowcase() {
           whileInView="show"
           viewport={{ once: true, margin: "-40px" }}
         >
-          {companyData.projects.map((project) => (
+          {companyData.projects.filter((p) => !p.hidden).slice(0, FEATURED_COUNT).map((project) => (
             <motion.div
               key={project.id}
               variants={fadeUp}
@@ -80,6 +83,25 @@ export default function ProjectsShowcase() {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* View all */}
+        <motion.div
+          className="mt-12 flex justify-center"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-40px" }}
+        >
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 bg-black text-white text-sm font-semibold px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors duration-200"
+          >
+            View All Projects
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </motion.div>
 
       </div>

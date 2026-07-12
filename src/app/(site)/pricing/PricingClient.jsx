@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const SALE_END = new Date('2026-07-01T00:00:00+01:00'); // midnight WAT end of June 30
+const SALE_END = new Date('2026-08-01T00:00:00+01:00'); // midnight WAT end of July 31
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -98,7 +98,7 @@ const plans = [
     ],
     delivery: '4–12 weeks, by quote',
     cta: 'Request a quote →',
-    message: "Hi Bluehydra, I'd like to discuss a custom software project. I saw the 50% off June promo. Can we schedule a scoping call?",
+    message: "Hi Bluehydra, I'd like to discuss a custom software project. I saw the 50% off July promo. Can we schedule a scoping call?",
     featured: false,
   },
 ];
@@ -171,7 +171,7 @@ function CountdownBanner() {
           {/* Label */}
           <div className="inline-flex items-center gap-2 bg-[#7c3aed]/20 border border-[#7c3aed]/40 text-violet-300 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
             <span className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse" />
-            June Promo — Ends midnight June 30
+            July Promo — Ends midnight July 31
           </div>
 
           <div>
@@ -239,14 +239,6 @@ export default function PricingClient() {
           <motion.p variants={fadeUp} className="text-lg text-gray-500 leading-relaxed mb-8 max-w-xl mx-auto">
             Three tiers. No hidden fees. Half down to start, half on delivery.
           </motion.p>
-          <motion.div variants={fadeUp} className="inline-flex items-start gap-2.5 border border-amber-200 bg-amber-50 text-amber-700 text-sm px-5 py-3 rounded-xl max-w-md text-left">
-            <svg className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-            </svg>
-            <span>
-              Referred by a current client? You may qualify for our <strong>July Push promo</strong> — mention your referrer when you chat with us.
-            </span>
-          </motion.div>
         </motion.div>
       </section>
 
@@ -367,7 +359,7 @@ export default function PricingClient() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            All prices are in Nigerian Naira (NGN). Sale ends midnight June 30, 2026. VAT may apply.
+            All prices are in Nigerian Naira (NGN). Sale ends midnight July 31, 2026. VAT may apply.
           </motion.p>
         </div>
       </section>

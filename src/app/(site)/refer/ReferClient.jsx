@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { registerReferrer } from '@/app/actions/registerReferrer';
 
 const SITE_URL = 'https://bluehydralabs.com';
-const SALE_END = new Date('2026-07-01T00:00:00+01:00'); // midnight WAT end of June 30
+const SALE_END = new Date('2026-08-01T00:00:00+01:00'); // midnight WAT end of July 31
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -322,7 +322,7 @@ function ReferForm({ onSuccess }) {
 
       <p className="mt-5 text-xs text-gray-400 text-center leading-relaxed">
         By signing up, you agree to receive your referral link by email.
-        Promo valid until June 30, 2026.
+        Promo valid until July 31, 2026.
       </p>
     </div>
   );
@@ -371,7 +371,7 @@ export default function ReferClient() {
               >
                 <motion.div variants={fadeUp} className="inline-flex items-center space-x-2 border border-gray-200 bg-white text-gray-500 text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest shadow-sm">
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                  <span>Referral Programme · June 2026</span>
+                  <span>Referral Programme · July 2026</span>
                 </motion.div>
 
                 <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black tracking-tight leading-[1.04] mb-5">
@@ -380,7 +380,7 @@ export default function ReferClient() {
                 </motion.h1>
 
                 <motion.p variants={fadeUp} className="text-xl text-gray-500 leading-relaxed mb-4 max-w-xl mx-auto">
-                  Earn <strong className="text-black">₦10,000 cash</strong> for every business you refer to Bluehydra — June only.
+                  Earn <strong className="text-black">₦10,000 cash</strong> for every business you refer to Bluehydra — July only.
                 </motion.p>
 
                 <motion.p variants={fadeUp} className="text-sm text-gray-400 mb-6">
@@ -455,7 +455,7 @@ export default function ReferClient() {
                         { label: 'You earn', value: '₦10,000 per referral — no cap' },
                         { label: 'They get', value: '50% off Website or E-commerce' },
                         { label: 'Payment', value: 'Within 24 hrs of their first deposit' },
-                        { label: 'Promo ends', value: 'June 30, 2026 at midnight' },
+                        { label: 'Promo ends', value: 'July 31, 2026 at midnight' },
                       ].map((item) => (
                         <div key={item.label} className="flex items-start gap-4">
                           <div className="w-1 h-10 bg-[#7c3aed] rounded-full flex-shrink-0 mt-0.5" />
@@ -511,7 +511,7 @@ export default function ReferClient() {
                   Every referral you don&apos;t send<br />is ₦10,000 you didn&apos;t earn.
                 </motion.h2>
                 <motion.p variants={fadeUp} className="text-gray-400 mb-8 text-lg">
-                  Takes 30 seconds. Promo closes June 30.
+                  Takes 30 seconds. Promo closes July 31.
                 </motion.p>
                 <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
