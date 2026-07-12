@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
 import { sendApplicationEmail } from '@/app/actions/sendApplication';
+import { trackFbEvent } from '@/lib/fbpixel';
 
 const DEADLINE = new Date('2026-06-12T23:59:59');
 
@@ -165,6 +166,7 @@ export default function ApplyPage() {
     setIsSubmitting(false);
     if (result.success) {
       setSubmitStatus('success');
+      trackFbEvent('Lead', { content_name: "Founders' Five Application" });
       setFormData(INITIAL_FORM);
       setErrors({});
       formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -310,6 +312,7 @@ export default function ApplyPage() {
                 href={`https://wa.me/2349133105749?text=${encodeURIComponent("Hi Bluehydra, I missed the Founders' Five — when is Cohort 02?")}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackFbEvent('Contact', { content_name: 'Apply Closed WhatsApp' })}
                 className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-[#7c3aed] hover:underline"
               >
                 Ask about Cohort 02 on WhatsApp →

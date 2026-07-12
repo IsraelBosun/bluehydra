@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackFbEvent } from '@/lib/fbpixel';
 
 const SALE_END = new Date('2026-08-01T00:00:00+01:00'); // midnight WAT end of July 31
 
@@ -338,6 +339,7 @@ export default function PricingClient() {
                     href={waLink(plan.message, ref)}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackFbEvent('Contact', { content_name: `Pricing WhatsApp — ${plan.name}` })}
                     className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
                       plan.featured
                         ? 'bg-[#7c3aed] text-white hover:bg-[#6d28d9] shadow-sm'
@@ -480,6 +482,7 @@ export default function PricingClient() {
               href={waLink("Hi Bluehydra, I'm not sure which tier fits my business. Can you help me decide?", ref)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackFbEvent('Contact', { content_name: 'Pricing WhatsApp — Not Sure' })}
               className="inline-flex items-center gap-2.5 bg-[#7c3aed] text-white text-sm font-semibold px-8 py-4 rounded-xl hover:bg-[#6d28d9] transition-colors duration-200 shadow-lg shadow-violet-900/40"
             >
               <WhatsAppIcon className="w-4 h-4" />

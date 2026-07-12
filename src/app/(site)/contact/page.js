@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { companyData } from '@/lib/data';
 import { sendContactEmail } from '@/app/actions/sendEmail';
 import BookingWidget from '@/components/BookingWidget';
+import { trackFbEvent } from '@/lib/fbpixel';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -34,6 +35,7 @@ export default function ContactPage() {
 
     if (result.success) {
       setSubmitStatus('success');
+      trackFbEvent('Lead', { content_name: 'Contact Form' });
       setFormData({ name: '', email: '', company: '', phone: '', projectType: '', budget: '', message: '', timeline: '' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -219,6 +221,7 @@ export default function ContactPage() {
                   href={`https://wa.me/${companyData.contact.phone.replace(/\D/g, '')}?text=${encodeURIComponent("Hello BlueHydra, I'm interested in starting a project...")}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackFbEvent('Contact', { content_name: 'Contact Page WhatsApp' })}
                   className="flex items-center justify-center w-full gap-2 border border-gray-200 text-black text-sm font-semibold px-5 py-3 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

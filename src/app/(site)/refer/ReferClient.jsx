@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { registerReferrer } from '@/app/actions/registerReferrer';
+import { trackFbEvent } from '@/lib/fbpixel';
 
 const SITE_URL = 'https://bluehydralabs.com';
 const SALE_END = new Date('2026-08-01T00:00:00+01:00'); // midnight WAT end of July 31
@@ -231,6 +232,7 @@ function ReferForm({ onSuccess }) {
     setSubmitting(false);
 
     if (result.success) {
+      trackFbEvent('Lead', { content_name: 'Referral Signup' });
       onSuccess(result.slug);
     } else {
       setServerError(result.error || 'Something went wrong. Please try again.');
@@ -476,6 +478,7 @@ export default function ReferClient() {
                         href="https://wa.me/2349133105749?text=Hi%20Bluehydra%2C%20I%27d%20like%20to%20know%20more%20about%20the%20referral%20programme."
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackFbEvent('Contact', { content_name: 'Refer WhatsApp' })}
                         className="inline-flex items-center gap-2 text-sm font-semibold text-black hover:text-[#7c3aed] transition-colors"
                       >
                         <WhatsAppIcon />

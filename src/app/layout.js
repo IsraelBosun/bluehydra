@@ -1,4 +1,5 @@
 import "./globals.css";
+import MetaPixel from '@/components/MetaPixel';
 
 export const metadata = {
   title: 'Bluehydra Labs - Engineering Excellence, Delivered',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
         <link rel="alternate icon" href="/favicon.ico" />
       </head>
       <body>
+        <MetaPixel />
         {children}
       </body>
     </html>
