@@ -172,6 +172,7 @@ export const companyData = {
       name: "Jude Oni",
       role: "Convener",
       company: "The Word Impact Network",
+      link: "https://thewordimpactnetwork.com/",
       content: "Bluehydra captured exactly what The Word Impact Network stands for. The website they delivered was clean, professional, and perfectly represented our global mission. They listened carefully, communicated clearly throughout the process, and delivered well ahead of schedule. Exceptional work.",
       avatar: null
     },
@@ -180,7 +181,17 @@ export const companyData = {
       name: "Victor Fatoyinbo",
       role: "Principal Partner",
       company: "Toausib Consulting",
+      link: "https://toausibconsulting.com/",
       content: "Working with Bluehydra was a seamless experience from start to finish. They built a website that truly reflects the standard and credibility of our firm. Every detail (the layout, the content structure, the performance) was handled with real professionalism. I would recommend them without hesitation.",
+      avatar: null
+    },
+    {
+      id: 3,
+      name: "Stephen Uche",
+      role: "Creative Director",
+      company: "STUCHEWRLD",
+      link: "https://stuchewrld.com/",
+      content: "The feedback on the site is really great, people keep telling me how much they love it. I had goosebumps just scrolling through it myself. Bluehydra nailed the feel I was going for. Thank you so so much.",
       avatar: null
     },
   ],

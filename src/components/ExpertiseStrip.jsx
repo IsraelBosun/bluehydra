@@ -66,21 +66,6 @@ export default function ExpertiseStrip() {
                 ))}
               </motion.ul>
             </div>
-
-            <motion.div
-              className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200"
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            >
-              {companyData.expertise.metrics.map((metric, index) => (
-                <motion.div key={index} variants={fadeUp}>
-                  <div className="text-3xl font-bold text-black mb-1">{metric.value}</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wider">{metric.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
           </motion.div>
 
         </div>

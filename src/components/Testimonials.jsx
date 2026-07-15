@@ -98,7 +98,21 @@ export default function Testimonials() {
                 <div>
                   <div className="text-sm font-semibold text-black">{testimonial.name}</div>
                   <div className="text-xs text-gray-400">{testimonial.role}</div>
-                  <div className="text-xs text-gray-400">{testimonial.company}</div>
+                  {testimonial.link ? (
+                    <a
+                      href={testimonial.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs text-[#7c3aed] font-medium underline underline-offset-2 decoration-[#7c3aed]/40 hover:decoration-[#7c3aed] transition-colors"
+                    >
+                      {testimonial.company}
+                      <svg className="w-2.5 h-2.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4-4m0 0h-6m6 0v6M11 4H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <div className="text-xs text-gray-400">{testimonial.company}</div>
+                  )}
                 </div>
               </div>
             </motion.div>

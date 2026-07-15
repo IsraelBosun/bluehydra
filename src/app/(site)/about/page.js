@@ -44,18 +44,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Metrics */}
-      <section className="px-6 lg:px-8 py-16 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto grid grid-cols-3 gap-8">
-          {companyData.expertise.metrics.map((m) => (
-            <div key={m.label}>
-              <p className="text-4xl lg:text-5xl font-bold text-black tracking-tight">{m.value}</p>
-              <p className="text-sm text-gray-500 mt-2">{m.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Story */}
       <section className="px-6 lg:px-8 py-20 border-b border-gray-200">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">

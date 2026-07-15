@@ -160,7 +160,7 @@ export default function HeroSection() {
 
             {/* Description */}
             <motion.p variants={fadeUp} className="text-lg text-gray-500 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-              We build fast, professional websites and online stores, like the ones you just saw. Delivered in days, not weeks or months.
+              We build fast, professional websites and online stores, like the ones you just saw. Quick turnaround, no long timelines.
             </motion.p>
 
             {/* CTAs */}
@@ -210,7 +210,7 @@ export default function HeroSection() {
           variants={stagger}
           initial="hidden"
           animate={mounted ? "show" : "hidden"}
-          className="lg:hidden mt-4"
+          className="lg:hidden mt-10"
         >
           <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4 text-center">
             Recent Works
