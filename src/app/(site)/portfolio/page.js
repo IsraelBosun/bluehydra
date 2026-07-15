@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { companyData } from '@/lib/data';
 
 export const metadata = {
-  title: 'Portfolio — Bluehydra',
+  title: 'Portfolio | Bluehydra',
   description: 'A full look at the web and mobile applications Bluehydra has built for businesses across consulting, e-commerce, finance, fashion, and creative industries.',
 };
 
@@ -21,7 +21,7 @@ export default function PortfolioPage() {
             Work we're proud to<br />put our name on.
           </h1>
           <p className="text-xl text-gray-500 leading-relaxed max-w-2xl">
-            Every project below is a real business we've built for — from e-commerce platforms and consulting websites to compliance advisory and creative studio sites.
+            Every project below is a real business we've built for, from e-commerce platforms and consulting websites to compliance advisory and creative studio sites.
           </p>
         </div>
       </section>

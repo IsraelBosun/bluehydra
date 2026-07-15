@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { companyData } from '@/lib/data';
 
 export const metadata = {
-  title: 'About — Bluehydra',
+  title: 'About | Bluehydra',
   description: 'We are a software development agency building high-performance web and mobile applications for growing businesses.',
 };
 
@@ -17,11 +17,11 @@ const values = [
   },
   {
     title: "We think about your business",
-    description: "Every technical choice is weighed against your actual goals. The best solution isn't always the most sophisticated one — it's the one that moves your business forward.",
+    description: "Every technical choice is weighed against your actual goals. The best solution isn't always the most sophisticated one. It's the one that moves your business forward.",
   },
   {
     title: "We finish what we start",
-    description: "Delivery discipline is non-negotiable. We set realistic expectations and then meet them. If something changes, we tell you early — not after the deadline.",
+    description: "Delivery discipline is non-negotiable. We set realistic expectations and then meet them. If something changes, we tell you early, not after the deadline.",
   },
 ];
 
@@ -63,13 +63,13 @@ export default function AboutPage() {
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Who we are</p>
             <div className="space-y-5 text-gray-600 leading-relaxed text-[15px]">
               <p>
-                We started Bluehydra with a straightforward conviction: most software agencies over-promise and under-deliver, and businesses — especially growing ones — deserve better than that.
+                We started Bluehydra with a straightforward conviction: most software agencies over-promise and under-deliver, and businesses, especially growing ones, deserve better than that.
               </p>
               <p>
                 So we built an agency around delivery. Not around pitch decks, not around impressive-sounding methodology names. Around getting things shipped, and shipped well.
               </p>
               <p>
-                Today we work with businesses across industries — from consulting firms and e-commerce platforms to event organisations and professional service providers. The work varies. The standards don't.
+                Today we work with businesses across industries, from consulting firms and e-commerce platforms to event organisations and professional service providers. The work varies. The standards don't.
               </p>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function AboutPage() {
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Our work</p>
             <h2 className="text-3xl font-bold text-black tracking-tight">See what we've built</h2>
             <p className="text-gray-500 mt-3 text-[15px] max-w-md">
-              From e-commerce platforms to consulting websites and studio management tools — here's a sample of projects we've delivered.
+              From e-commerce platforms to consulting websites and studio management tools, here's a sample of projects we've delivered.
             </p>
           </div>
           <Link

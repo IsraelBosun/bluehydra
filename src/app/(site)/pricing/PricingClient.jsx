@@ -87,7 +87,7 @@ const plans = [
     price: '₦1,200,000',
     salePrice: '₦600,000',
     priceNote: 'Starts at',
-    tagline: 'For complex projects — dashboards, APIs, mobile apps, integrations.',
+    tagline: 'For complex projects: dashboards, APIs, mobile apps, integrations.',
     comparison: null,
     features: [
       'Custom scoping session',
@@ -119,7 +119,7 @@ const faqs = [
   },
   {
     question: "Can I pay in installments?",
-    answer: "Yes — our standard is 50% upfront and 50% on delivery. For Custom Software, we can structure 3 payments tied to milestones.",
+    answer: "Yes, our standard is 50% upfront and 50% on delivery. For Custom Software, we can structure 3 payments tied to milestones.",
   },
   {
     question: "Do you work with businesses outside Nigeria?",
@@ -172,7 +172,7 @@ function CountdownBanner() {
           {/* Label */}
           <div className="inline-flex items-center gap-2 bg-[#7c3aed]/20 border border-[#7c3aed]/40 text-violet-300 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
             <span className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse" />
-            July Promo — Ends midnight July 31
+            July Promo: Ends midnight July 31
           </div>
 
           <div>
@@ -339,7 +339,7 @@ export default function PricingClient() {
                     href={waLink(plan.message, ref)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => trackFbEvent('Contact', { content_name: `Pricing WhatsApp — ${plan.name}` })}
+                    onClick={() => trackFbEvent('Contact', { content_name: `Pricing WhatsApp: ${plan.name}` })}
                     className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
                       plan.featured
                         ? 'bg-[#7c3aed] text-white hover:bg-[#6d28d9] shadow-sm'
@@ -388,7 +388,7 @@ export default function PricingClient() {
               {[
                 { num: '01', heading: '50% upfront', body: 'Pay half to kick off the project and lock in your start date.' },
                 { num: '02', heading: '50% on delivery', body: 'Pay the balance when we hand over the final product.' },
-                { num: '03', heading: 'Easy payment', body: "Bank transfer or card payment — we'll send details once we align on scope." },
+                { num: '03', heading: 'Easy payment', body: "Bank transfer or card payment. We'll send details once we align on scope." },
               ].map((item) => (
                 <motion.div key={item.num} variants={fadeUp} className="bg-white px-8 py-8">
                   <div className="text-2xl font-bold text-[#7c3aed] mb-3">{item.num}</div>
@@ -475,14 +475,14 @@ export default function PricingClient() {
             Not sure which<br />tier fits?
           </motion.h2>
           <motion.p variants={fadeUp} className="text-gray-400 text-lg leading-relaxed mb-10">
-            Send us a WhatsApp message — we'll figure it out together.
+            Send us a WhatsApp message, we'll figure it out together.
           </motion.p>
           <motion.div variants={fadeUp}>
             <a
               href={waLink("Hi Bluehydra, I'm not sure which tier fits my business. Can you help me decide?", ref)}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackFbEvent('Contact', { content_name: 'Pricing WhatsApp — Not Sure' })}
+              onClick={() => trackFbEvent('Contact', { content_name: 'Pricing WhatsApp: Not Sure' })}
               className="inline-flex items-center gap-2.5 bg-[#7c3aed] text-white text-sm font-semibold px-8 py-4 rounded-xl hover:bg-[#6d28d9] transition-colors duration-200 shadow-lg shadow-violet-900/40"
             >
               <WhatsAppIcon className="w-4 h-4" />

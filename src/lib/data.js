@@ -64,7 +64,7 @@ export const companyData = {
       id: 11,
       title: "The Ankara Closet",
       type: "E-Commerce",
-      description: "Ready-to-wear Ankara fashion e-commerce store offering dresses, two-piece sets, and traditional garments — with fast delivery, pay-on-delivery, and worldwide shipping.",
+      description: "Ready-to-wear Ankara fashion e-commerce store offering dresses, two-piece sets, and traditional garments, with fast delivery, pay-on-delivery, and worldwide shipping.",
       link: "https://theankaracloset.com/",
       image: "/images/projects/the-ankara-closet.png"
     },
@@ -72,7 +72,7 @@ export const companyData = {
       id: 10,
       title: "STUCHEWRLD",
       type: "Creative Portfolio",
-      description: "Cinematic production studio website for Lagos-based creative director Stuche — showcasing music video visualizers, event coverage, and branded film content across Africa.",
+      description: "Cinematic production studio website for Lagos-based creative director Stuche, showcasing music video visualizers, event coverage, and branded film content across Africa.",
       link: "https://stuchewrld.com/",
       image: "/images/projects/stuchewrld.png"
     },
@@ -80,7 +80,7 @@ export const companyData = {
       id: 7,
       title: "Smartstarts Solutions",
       type: "Business Advisory",
-      description: "Financial systems and compliance advisory platform helping African founders move from disorder to structure — covering finance flow mapping, compliance frameworks, and business control systems.",
+      description: "Financial systems and compliance advisory platform helping African founders move from disorder to structure, covering finance flow mapping, compliance frameworks, and business control systems.",
       link: "https://smartstartssolutions.com/",
       image: "/images/projects/smartstarts-solutions.png"
     },
@@ -88,7 +88,7 @@ export const companyData = {
       id: 6,
       title: "Omicron Gadgets",
       type: "E-Commerce",
-      description: "E-commerce platform for professional audiovisual equipment tailored to Nigerian filmmakers and content creators — featuring gimbals, microphones, studio lighting, and tripods.",
+      description: "E-commerce platform for professional audiovisual equipment tailored to Nigerian filmmakers and content creators, featuring gimbals, microphones, studio lighting, and tripods.",
       link: "https://omicrongadget.vercel.app/",
       image: "/images/projects/omicron-gadgets.jpg",
       hidden: true
@@ -113,7 +113,7 @@ export const companyData = {
       id: 4,
       title: "Pearloria",
       type: "Web Application",
-      description: "Business registration and compliance platform helping Nigerian entrepreneurs legally register, structure, and protect their businesses — covering CAC registration, company incorporation, trademarks, and ongoing compliance filings.",
+      description: "Business registration and compliance platform helping Nigerian entrepreneurs legally register, structure, and protect their businesses, covering CAC registration, company incorporation, trademarks, and ongoing compliance filings.",
       link: "https://www.pearloriaenterprises.com/",
       image: "/images/projects/pearloria.png"
     },
@@ -121,7 +121,7 @@ export const companyData = {
       id: 5,
       title: "PhotoStudio.ng",
       type: "Web Application",
-      description: "Studio management platform built for Nigerian photographers — client galleries, online booking, Paystack payment processing, and invoice management all in one branded system.",
+      description: "Studio management platform built for Nigerian photographers: client galleries, online booking, Paystack payment processing, and invoice management all in one branded system.",
       link: "https://www.photostudio.ng",
       image: "/images/projects/photostudio-ng.jpg"
     },
@@ -129,7 +129,7 @@ export const companyData = {
       id: 8,
       title: "Ulcare Enterprise",
       type: "Business Services",
-      description: "Business support platform offering virtual assistance, branding design, and professional templates for entrepreneurs across Nigeria — plus training through Ulcare Academy.",
+      description: "Business support platform offering virtual assistance, branding design, and professional templates for entrepreneurs across Nigeria, plus training through Ulcare Academy.",
       link: "https://ulacareenterprise.com/",
       image: "/images/projects/ulcare-enterprise.png"
     },
@@ -137,7 +137,7 @@ export const companyData = {
       id: 9,
       title: "ADEM Financial Consulting",
       type: "Financial Consulting",
-      description: "Accounting, tax, audit, and compliance advisory firm built for Nigerian SMEs — covering bookkeeping, statutory audits, regulatory registration, and financial consulting.",
+      description: "Accounting, tax, audit, and compliance advisory firm built for Nigerian SMEs, covering bookkeeping, statutory audits, regulatory registration, and financial consulting.",
       link: "https://ademfinancialconsulting.com/",
       image: "/images/projects/adem-financial-consulting.png"
     },
@@ -157,7 +157,7 @@ export const companyData = {
       },
       {
         title: "Business-Aligned Decisions",
-        description: "Every technical choice is made with your business goals in mind. We're not just developers—we're strategic partners."
+        description: "Every technical choice is made with your business goals in mind. We're not just developers. We're strategic partners."
       },
       {
         title: "Delivery Discipline",
@@ -180,7 +180,7 @@ export const companyData = {
       name: "Victor Fatoyinbo",
       role: "Principal Partner",
       company: "Toausib Consulting",
-      content: "Working with Bluehydra was a seamless experience from start to finish. They built a website that truly reflects the standard and credibility of our firm. Every detail — the layout, the content structure, the performance — was handled with real professionalism. I would recommend them without hesitation.",
+      content: "Working with Bluehydra was a seamless experience from start to finish. They built a website that truly reflects the standard and credibility of our firm. Every detail (the layout, the content structure, the performance) was handled with real professionalism. I would recommend them without hesitation.",
       avatar: null
     },
   ],

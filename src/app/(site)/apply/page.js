@@ -34,11 +34,11 @@ const faqs = [
   },
   {
     q: "Do I need to pay for a domain name?",
-    a: "Yes — the domain name is your responsibility. We'll walk you through the purchase and handle all the technical setup ourselves.",
+    a: "Yes, the domain name is your responsibility. We'll walk you through the purchase and handle all the technical setup ourselves.",
   },
   {
     q: "What if I'm not selected?",
-    a: "We read every application. If you're not in the Five, we'll still be in touch — sometimes a smaller starter package is the right fit, and we'll talk through your options.",
+    a: "We read every application. If you're not in the Five, we'll still be in touch. Sometimes a smaller starter package is the right fit, and we'll talk through your options.",
   },
   {
     q: "When will I hear back?",
@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: "What if I already have a website?",
-    a: "Tell us — sometimes a rebuild is exactly what's needed.",
+    a: "Tell us. Sometimes a rebuild is exactly what's needed.",
   },
   {
     q: "Can I share this with someone?",
@@ -221,7 +221,7 @@ export default function ApplyPage() {
                 onClick={scrollToForm}
                 className="inline-flex items-center gap-2 bg-[#7c3aed] text-white text-sm font-semibold px-8 py-4 rounded-lg hover:bg-[#6d28d9] transition-colors duration-200"
               >
-                Apply Now — 5 spots
+                Apply Now (5 spots)
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
@@ -257,11 +257,11 @@ export default function ApplyPage() {
             <ul className="space-y-6">
               <li className="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
                 <span className="text-[#7c3aed] mt-0.5 flex-shrink-0">→</span>
-                <span><strong className="text-black">A real business</strong> — you have a product or service with customers, not just an idea</span>
+                <span><strong className="text-black">A real business</strong>: you have a product or service with customers, not just an idea</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
                 <span className="text-[#7c3aed] mt-0.5 flex-shrink-0">→</span>
-                <span><strong className="text-black">Serious ambition</strong> — you're ready to grow, and a proper online presence is part of that plan</span>
+                <span><strong className="text-black">Serious ambition</strong>: you're ready to grow, and a proper online presence is part of that plan</span>
               </li>
             </ul>
           </div>
@@ -306,10 +306,10 @@ export default function ApplyPage() {
               </div>
               <h3 className="text-base font-bold text-black mb-2">This programme is now closed</h3>
               <p className="text-sm text-gray-500 leading-relaxed max-w-sm mx-auto">
-                Applications for Cohort 01 are no longer being accepted. Follow us or reach out directly — Cohort 02 will be announced soon.
+                Applications for Cohort 01 are no longer being accepted. Follow us or reach out directly. Cohort 02 will be announced soon.
               </p>
               <a
-                href={`https://wa.me/2349133105749?text=${encodeURIComponent("Hi Bluehydra, I missed the Founders' Five — when is Cohort 02?")}`}
+                href={`https://wa.me/2349133105749?text=${encodeURIComponent("Hi Bluehydra, I missed the Founders' Five. When is Cohort 02?")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackFbEvent('Contact', { content_name: 'Apply Closed WhatsApp' })}
@@ -362,7 +362,7 @@ export default function ApplyPage() {
 
                   <div>
                     <label htmlFor="existingWebsite" className={labelClass}>Do you have a website already?</label>
-                    <input type="text" id="existingWebsite" name="existingWebsite" value={formData.existingWebsite} onChange={handleChange} className={getInputClass('existingWebsite')} placeholder="yoursite.com — or leave blank" />
+                    <input type="text" id="existingWebsite" name="existingWebsite" value={formData.existingWebsite} onChange={handleChange} className={getInputClass('existingWebsite')} placeholder="yoursite.com (or leave blank)" />
                     {errors.existingWebsite && <p className="text-xs text-red-500 mt-1.5">{errors.existingWebsite}</p>}
                   </div>
 
@@ -381,7 +381,7 @@ export default function ApplyPage() {
                         {errors.socialPlatform && <p className="text-xs text-red-500 mt-1.5">{errors.socialPlatform}</p>}
                       </div>
                       <div>
-                        <input type="text" name="socialLink" value={formData.socialLink} onChange={handleChange} className={getInputClass('socialLink')} placeholder="instagram.com/yourbusiness — or leave blank" />
+                        <input type="text" name="socialLink" value={formData.socialLink} onChange={handleChange} className={getInputClass('socialLink')} placeholder="instagram.com/yourbusiness (or leave blank)" />
                         {errors.socialLink && <p className="text-xs text-red-500 mt-1.5">{errors.socialLink}</p>}
                       </div>
                     </div>

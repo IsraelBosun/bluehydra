@@ -87,7 +87,7 @@ const steps = [
       </svg>
     ),
     title: 'Get paid ₦10,000',
-    body: "When they make their first deposit, we send you ₦10,000 within 24 hours. No cap — refer more, earn more.",
+    body: "When they make their first deposit, we send you ₦10,000 within 24 hours. No cap, refer more, earn more.",
   },
 ];
 
@@ -152,7 +152,7 @@ function SuccessView({ slug }) {
       </motion.h1>
       <motion.p variants={fadeUp} className="text-gray-500 text-base mb-10 leading-relaxed">
         Share this with business owners. Every successful referral earns you{' '}
-        <strong className="text-black">₦10,000</strong> — paid within 24 hours of their first deposit.
+        <strong className="text-black">₦10,000</strong>, paid within 24 hours of their first deposit.
       </motion.p>
 
       {/* Link box */}
@@ -382,7 +382,7 @@ export default function ReferClient() {
                 </motion.h1>
 
                 <motion.p variants={fadeUp} className="text-xl text-gray-500 leading-relaxed mb-4 max-w-xl mx-auto">
-                  Earn <strong className="text-black">₦10,000 cash</strong> for every business you refer to Bluehydra — July only.
+                  Earn <strong className="text-black">₦10,000 cash</strong> for every business you refer to Bluehydra, July only.
                 </motion.p>
 
                 <motion.p variants={fadeUp} className="text-sm text-gray-400 mb-6">
@@ -454,7 +454,7 @@ export default function ReferClient() {
 
                     <div className="space-y-6">
                       {[
-                        { label: 'You earn', value: '₦10,000 per referral — no cap' },
+                        { label: 'You earn', value: '₦10,000 per referral, no cap' },
                         { label: 'They get', value: '50% off Website or E-commerce' },
                         { label: 'Payment', value: 'Within 24 hrs of their first deposit' },
                         { label: 'Promo ends', value: 'July 31, 2026 at midnight' },
