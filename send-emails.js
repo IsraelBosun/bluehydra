@@ -32,7 +32,7 @@ const SITE_URL = 'https://www.bluehydralabs.com';
 const SELECTED = [
   'glamorah1@gmail.com',
   'stuchewrld.inc@gmail.com',
-  'ademfinancialconsutling@gmail.com',
+  'ademfinancialconsulting@gmail.com',
   'bolarinde.samuel@gmail.com',
   'ogbeidelois001@gmail.com',
   'chisom@smartstartssolutions.com',
@@ -41,6 +41,61 @@ const SELECTED = [
   'oluwatoyinjohn1000@gmail.com',
   'joshuaadedeji2002@gmail.com',
 ];
+
+// ─── Slug helpers ─────────────────────────────────────────────────────────────
+
+function toSlug(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 30);
+}
+
+function supabaseGet(path) {
+  return new Promise((resolve, reject) => {
+    const url = new URL(`${SUPABASE_URL}/rest/v1/${path}`);
+    https.get({ hostname: url.hostname, path: url.pathname + url.search, headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }, res => {
+      let d = '';
+      res.on('data', c => (d += c));
+      res.on('end', () => resolve(JSON.parse(d)));
+    }).on('error', reject);
+  });
+}
+
+function supabasePost(path, body) {
+  return new Promise((resolve, reject) => {
+    const url = new URL(`${SUPABASE_URL}/rest/v1/${path}`);
+    const payload = JSON.stringify(body);
+    const options = {
+      hostname: url.hostname,
+      path: url.pathname,
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload),
+        Prefer: 'return=representation',
+      },
+    };
+    const req = https.request(options, res => {
+      let d = '';
+      res.on('data', c => (d += c));
+      res.on('end', () => resolve({ status: res.statusCode, body: JSON.parse(d) }));
+    });
+    req.on('error', reject);
+    req.write(payload);
+    req.end();
+  });
+}
+
+async function findUniqueSlug(baseSlug) {
+  const rows = await supabaseGet(`referrers?select=slug&slug=eq.${baseSlug}`);
+  if (!rows.length) return baseSlug;
+  for (let i = 1; i <= 99; i++) {
+    const candidate = `${baseSlug}-${i}`;
+    const existing = await supabaseGet(`referrers?select=slug&slug=eq.${candidate}`);
+    if (!existing.length) return candidate;
+  }
+  throw new Error(`Could not find unique slug for ${baseSlug}`);
+}
 
 // ─── Supabase helpers ──────────────────────────────────────────────────────────
 
@@ -311,13 +366,67 @@ function notSelectedHtml(name) {
 
 // ─── Main ──────────────────────────────────────────────────────────────────────
 
+async function generateReferralLinks() {
+  if (!SELECTED.length) {
+    console.log('Add emails to the SELECTED array first.');
+    process.exit(1);
+  }
+
+  const applicants = await fetchApplicants();
+  const targets = applicants.filter(a => SELECTED.includes(a.email));
+
+  if (!targets.length) {
+    console.log('No matching applicants found for the emails in SELECTED.');
+    process.exit(0);
+  }
+
+  console.log(`Generating referral links for ${targets.length} founders...\n`);
+
+  for (const applicant of targets) {
+    const baseSlug = toSlug(applicant.name);
+    if (!baseSlug) {
+      console.log(`  SKIP  ${applicant.name} — could not generate slug`);
+      continue;
+    }
+
+    // Check if already in referrers by email
+    const existing = await supabaseGet(`referrers?select=slug&email=eq.${encodeURIComponent(applicant.email)}`);
+    if (existing.length) {
+      const link = `https://bluehydralabs.com/pricing?ref=${existing[0].slug}`;
+      console.log(`  SKIP  ${applicant.name} — already has a link: ${link}`);
+      continue;
+    }
+
+    const slug = await findUniqueSlug(baseSlug);
+    const result = await supabasePost('referrers', {
+      name: applicant.name,
+      email: applicant.email,
+      whatsapp: '',
+      slug,
+    });
+
+    if (result.status === 201) {
+      const link = `https://bluehydralabs.com/pricing?ref=${slug}`;
+      console.log(`  OK    ${applicant.name} — ${link}`);
+    } else {
+      console.log(`  ERROR ${applicant.name} — status ${result.status}:`, JSON.stringify(result.body));
+    }
+  }
+
+  console.log('\nDone.');
+}
+
 async function main() {
   const mode = process.argv[2];
-  const validModes = ['acknowledge', 'selected', 'not-selected'];
+  const validModes = ['acknowledge', 'selected', 'not-selected', 'referral-links'];
 
   if (!validModes.includes(mode)) {
-    console.log('Usage: node send-emails.js <acknowledge|selected|not-selected>');
+    console.log('Usage: node send-emails.js <acknowledge|selected|not-selected|referral-links>');
     process.exit(1);
+  }
+
+  if (mode === 'referral-links') {
+    return generateReferralLinks();
   }
 
   const applicants = await fetchApplicants();

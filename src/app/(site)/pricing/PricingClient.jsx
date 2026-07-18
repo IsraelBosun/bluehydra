@@ -53,7 +53,7 @@ const plans = [
       'SEO + Google Analytics',
       '30 days post-launch support',
     ],
-    delivery: '2–3 weeks',
+    delivery: '3 days',
     cta: 'Start the conversation →',
     message: "Hi Bluehydra, I'm interested in the Website package at the 50% off price (₦150,000). Can we talk?",
     featured: false,
@@ -76,7 +76,7 @@ const plans = [
       '2 rounds of revisions',
       'Training session',
     ],
-    delivery: '3–4 weeks',
+    delivery: '1–2 weeks',
     cta: 'Start the conversation →',
     message: "Hi Bluehydra, I'm interested in the E-commerce package at the 50% off price (₦300,000). Can we talk?",
     featured: true,
@@ -97,7 +97,7 @@ const plans = [
       'Admin dashboards',
       'Cloud deployment + support options',
     ],
-    delivery: '4–12 weeks, by quote',
+    delivery: null,
     cta: 'Request a quote →',
     message: "Hi Bluehydra, I'd like to discuss a custom software project. I saw the 50% off July promo. Can we schedule a scoping call?",
     featured: false,
@@ -111,7 +111,7 @@ const faqs = [
   },
   {
     question: "How long until I see something?",
-    answer: "For Website and E-commerce packages, you'll see your first design draft within 5 working days.",
+    answer: "For Website packages, you'll see your first design draft within 24–48 hours. For E-commerce, within 3–5 working days.",
   },
   {
     question: "What if I need changes after launch?",
@@ -331,7 +331,7 @@ export default function PricingClient() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span className={`text-xs font-semibold ${plan.featured ? 'text-[#7c3aed]' : 'text-gray-500'}`}>
-                      Delivery: {plan.delivery}
+                      {plan.delivery ? `Delivery: ${plan.delivery}` : 'Timeline: depends on project scope'}
                     </span>
                   </div>
 
