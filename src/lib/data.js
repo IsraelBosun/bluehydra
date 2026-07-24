@@ -218,6 +218,10 @@ export const companyData = {
     contact: [
       { label: "Get in Touch", href: "/contact" },
       { label: "Book Consultation", href: "/contact#consultation" }
+    ],
+    legal: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Learn Pandas Privacy", href: "/privacy/learn-pandas" }
     ]
   }
 };
