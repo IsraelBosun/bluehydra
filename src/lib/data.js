@@ -61,25 +61,55 @@ export const companyData = {
 
   projects: [
     {
-      id: 11,
-      title: "The Ankara Closet",
-      type: "E-Commerce",
-      description: "Ready-to-wear Ankara fashion e-commerce store offering dresses, two-piece sets, and traditional garments, with fast delivery, pay-on-delivery, and worldwide shipping.",
-      link: "https://theankaracloset.com/",
-      image: "/images/projects/the-ankara-closet.png"
+      id: 12,
+      title: "Learn Pandas",
+      type: "Android App",
+      platform: "mobile",
+      description: "Android app for mastering the Python pandas library through spaced repetition: a daily deck built from what you get wrong, drills on loc, iloc and groupby against real dataframes, instant feedback on every answer, and streak tracking to keep retention up.",
+      link: "https://play.google.com/store/apps/details?id=com.israelbosun.learnpandas",
+      image: "/images/projects/learn-pandas.png"
     },
     {
       id: 10,
       title: "STUCHEWRLD",
       type: "Creative Portfolio",
+      platform: "web",
       description: "Cinematic production studio website for Lagos-based creative director Stuche, showcasing music video visualizers, event coverage, and branded film content across Africa.",
       link: "https://stuchewrld.com/",
       image: "/images/projects/stuchewrld.png"
     },
     {
+      id: 1,
+      title: "Toausib Consulting",
+      type: "Web Application",
+      platform: "web",
+      description: "Professional consulting website showcasing audit, tax advisory, and training services for Nigeria's leading firm.",
+      link: "https://toausibconsulting.com/",
+      image: "/images/projects/toausib-consulting.png"
+    },
+    {
+      id: 5,
+      title: "PhotoStudio.ng",
+      type: "Web Application",
+      platform: "web",
+      description: "Studio management platform built for Nigerian photographers: client galleries, online booking, Paystack payment processing, and invoice management all in one branded system.",
+      link: "https://www.photostudio.ng",
+      image: "/images/projects/photostudio-ng.jpg"
+    },
+    {
+      id: 11,
+      title: "The Ankara Closet",
+      type: "E-Commerce",
+      platform: "web",
+      description: "Ready-to-wear Ankara fashion e-commerce store offering dresses, two-piece sets, and traditional garments, with fast delivery, pay-on-delivery, and worldwide shipping.",
+      link: "https://theankaracloset.com/",
+      image: "/images/projects/the-ankara-closet.png"
+    },
+    {
       id: 7,
       title: "Smartstarts Solutions",
       type: "Business Advisory",
+      platform: "web",
       description: "Financial systems and compliance advisory platform helping African founders move from disorder to structure, covering finance flow mapping, compliance frameworks, and business control systems.",
       link: "https://smartstartssolutions.com/",
       image: "/images/projects/smartstarts-solutions.png"
@@ -88,23 +118,17 @@ export const companyData = {
       id: 6,
       title: "Omicron Gadgets",
       type: "E-Commerce",
+      platform: "web",
       description: "E-commerce platform for professional audiovisual equipment tailored to Nigerian filmmakers and content creators, featuring gimbals, microphones, studio lighting, and tripods.",
       link: "https://omicrongadget.vercel.app/",
       image: "/images/projects/omicron-gadgets.jpg",
       hidden: true
     },
     {
-      id: 1,
-      title: "Toausib Consulting",
-      type: "Web Application",
-      description: "Professional consulting website showcasing audit, tax advisory, and training services for Nigeria's leading firm.",
-      link: "https://toausibconsulting.com/",
-      image: "/images/projects/toausib-consulting.png"
-    },
-    {
       id: 3,
       title: "The Word Impact Network Event Website",
       type: "Web Application",
+      platform: "web",
       description: "Professional event website showcasing the World Impact Network's global initiatives and community engagement.",
       link: "https://thewordimpactnetwork.com/",
       image: "/images/projects/word-impact-network.png"
@@ -113,22 +137,16 @@ export const companyData = {
       id: 4,
       title: "Pearloria",
       type: "Web Application",
+      platform: "web",
       description: "Business registration and compliance platform helping Nigerian entrepreneurs legally register, structure, and protect their businesses, covering CAC registration, company incorporation, trademarks, and ongoing compliance filings.",
       link: "https://www.pearloriaenterprises.com/",
       image: "/images/projects/pearloria.png"
     },
     {
-      id: 5,
-      title: "PhotoStudio.ng",
-      type: "Web Application",
-      description: "Studio management platform built for Nigerian photographers: client galleries, online booking, Paystack payment processing, and invoice management all in one branded system.",
-      link: "https://www.photostudio.ng",
-      image: "/images/projects/photostudio-ng.jpg"
-    },
-    {
       id: 8,
       title: "Ulcare Enterprise",
       type: "Business Services",
+      platform: "web",
       description: "Business support platform offering virtual assistance, branding design, and professional templates for entrepreneurs across Nigeria, plus training through Ulcare Academy.",
       link: "https://ulacareenterprise.com/",
       image: "/images/projects/ulcare-enterprise.png"
@@ -137,6 +155,7 @@ export const companyData = {
       id: 9,
       title: "ADEM Financial Consulting",
       type: "Financial Consulting",
+      platform: "web",
       description: "Accounting, tax, audit, and compliance advisory firm built for Nigerian SMEs, covering bookkeeping, statutory audits, regulatory registration, and financial consulting.",
       link: "https://ademfinancialconsulting.com/",
       image: "/images/projects/adem-financial-consulting.png"
