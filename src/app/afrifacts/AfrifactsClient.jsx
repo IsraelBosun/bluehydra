@@ -163,7 +163,7 @@ export default function AfrifactsClient({ source }) {
 
         <motion.p
           variants={fadeUp}
-          className="mx-auto mt-5 max-w-md text-center text-[15px] leading-relaxed text-[#f6f1e3]/70"
+          className="mx-auto mt-5 max-w-md text-center text-[15px] leading-relaxed text-[#f6f1e3]"
         >
           A verified fact about Africa, every single day. We're opening a small closed test on
           Android. Drop your email and we'll send you the invite.
@@ -184,18 +184,18 @@ export default function AfrifactsClient({ source }) {
                 </svg>
               </div>
               <p className="mt-4 af-display text-2xl font-bold">You're in.</p>
-              <p className="mx-auto mt-3 max-w-sm text-[15px] leading-relaxed text-[#f6f1e3]/75">
+              <p className="mx-auto mt-3 max-w-sm text-[15px] leading-relaxed text-[#f6f1e3]/90">
                 Watch your inbox. We'll send your Play Store invite link within 24 hours. Open it
                 on your phone, tap <span className="text-[#f6f1e3]">"Become a tester"</span>, then install.
               </p>
-              <p className="mt-5 text-xs text-[#f6f1e3]/45">
+              <p className="mt-5 text-xs text-[#f6f1e3]/70">
                 Nothing after a day? Check spam, or just reply to our email.
               </p>
             </motion.div>
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-[#f6f1e3]/12 bg-[#0e4436]/80 p-5 backdrop-blur-sm sm:p-6"
+              className="rounded-2xl border border-[#f6f1e3]/20 bg-[#0e4436]/80 p-5 backdrop-blur-sm sm:p-6"
             >
               <label
                 htmlFor="af-email"
@@ -213,8 +213,8 @@ export default function AfrifactsClient({ source }) {
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); if (error) setError(''); }}
                 placeholder="you@gmail.com"
-                className={`mt-2.5 w-full rounded-xl border bg-[#082c22] px-4 py-3.5 text-[15px] text-[#f6f1e3] outline-none transition placeholder:text-[#f6f1e3]/30 focus:border-[#7fd3af] ${
-                  error ? 'border-[#e8836b]' : 'border-[#f6f1e3]/15'
+                className={`mt-2.5 w-full rounded-xl border bg-[#082c22] px-4 py-3.5 text-[15px] text-[#f6f1e3] outline-none transition placeholder:text-[#f6f1e3]/50 focus:border-[#7fd3af] ${
+                  error ? 'border-[#e8836b]' : 'border-[#f6f1e3]/25'
                 }`}
               />
 
@@ -233,7 +233,7 @@ export default function AfrifactsClient({ source }) {
               {error ? (
                 <p className="mt-2 text-[13px] text-[#f0a08c]">{error}</p>
               ) : (
-                <p className="mt-2.5 text-[13px] leading-relaxed text-[#f6f1e3]/50">
+                <p className="mt-2.5 text-[13px] leading-relaxed text-[#f6f1e3]/80">
                   Use the Google account signed in on your Android phone. That's the one Play needs
                   to let you in.
                 </p>
@@ -254,8 +254,8 @@ export default function AfrifactsClient({ source }) {
                 )}
               </button>
 
-              <p className="mt-3.5 text-center text-[12px] text-[#f6f1e3]/40">
-                Android only for now · One email, no spam · Limited spots
+              <p className="mt-3.5 text-center text-[12px] text-[#f6f1e3]/70">
+                Android only for now · One email, no spam
               </p>
             </form>
           )}
@@ -279,18 +279,18 @@ export default function AfrifactsClient({ source }) {
                 {f.icon}
               </span>
               <p className="mt-3 text-[15px] font-bold">{f.title}</p>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-[#f6f1e3]/55">{f.body}</p>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-[#f6f1e3]/80">{f.body}</p>
             </li>
           ))}
         </motion.ul>
 
         {/* ─── Footer ────────────────────────────────────────────────────── */}
-        <motion.p variants={fadeUp} className="mt-16 text-center text-[12px] text-[#f6f1e3]/35">
+        <motion.p variants={fadeUp} className="mt-16 text-center text-[12px] text-[#f6f1e3]/65">
           AfriFacts: verified facts about Africa, one card at a time.
           <br className="sm:hidden" />
           <span className="hidden sm:inline"> · </span>
           Built by{' '}
-          <a href="https://bluehydralabs.com" className="underline underline-offset-2 hover:text-[#f6f1e3]/60">
+          <a href="https://bluehydralabs.com" className="underline underline-offset-2 hover:text-[#f6f1e3]">
             Bluehydra Labs
           </a>
         </motion.p>
