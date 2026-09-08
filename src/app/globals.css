@@ -154,3 +154,41 @@
     background-color: rgba(255, 255, 255, 0.92);
   }
 }
+
+@layer utilities {
+  /* ─── AfriFacts landing page (/afrifacts) ────────────────────────────────── */
+  .af-body {
+    font-family: var(--font-af-body), -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  .af-display {
+    font-family: var(--font-af-display), Georgia, 'Times New Roman', serif;
+  }
+
+  /* The phone strip scrolls on mobile, but silently. */
+  .af-strip {
+    scrollbar-width: none;
+  }
+
+  .af-strip::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* The site's light scrollbar looks wrong over AfriFacts' dark green, so this
+   route gets its own. Scoped via :has() so nothing else on the site changes. */
+html:has(.af-page) {
+  scrollbar-color: rgba(246, 241, 227, 0.22) #08281f;
+}
+
+html:has(.af-page) ::-webkit-scrollbar-track {
+  background: #08281f;
+}
+
+html:has(.af-page) ::-webkit-scrollbar-thumb {
+  background: rgba(246, 241, 227, 0.22);
+}
+
+html:has(.af-page) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(246, 241, 227, 0.38);
+}

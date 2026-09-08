@@ -1,5 +1,5 @@
 /**
- * Founders' Five — bulk email sender
+ * Founders' Five bulk email sender
  *
  * Usage:
  *   node send-emails.js acknowledge   → send acknowledgement to all applicants
@@ -276,7 +276,7 @@ function selectedHtml(name, link) {
               Congratulations. <strong>You've been selected as one of the Founders' Five.</strong> We went through every application carefully and yours stood out.
             </p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
-              We're ready to start building your site right now. All we need from you is a short brief — your story, what you offer, how you want things to look and feel.
+              We're ready to start building your site right now. All we need from you is a short brief: your story, what you offer, how you want things to look and feel.
             </p>
             <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7;">
               <strong>The sooner you fill this in, the sooner we start.</strong> We're working through briefs in the order we receive them. Every moment counts.
@@ -385,7 +385,7 @@ async function generateReferralLinks() {
   for (const applicant of targets) {
     const baseSlug = toSlug(applicant.name);
     if (!baseSlug) {
-      console.log(`  SKIP  ${applicant.name} — could not generate slug`);
+      console.log(`  SKIP  ${applicant.name}: could not generate slug`);
       continue;
     }
 
@@ -393,7 +393,7 @@ async function generateReferralLinks() {
     const existing = await supabaseGet(`referrers?select=slug&email=eq.${encodeURIComponent(applicant.email)}`);
     if (existing.length) {
       const link = `https://bluehydralabs.com/pricing?ref=${existing[0].slug}`;
-      console.log(`  SKIP  ${applicant.name} — already has a link: ${link}`);
+      console.log(`  SKIP  ${applicant.name}: already has a link: ${link}`);
       continue;
     }
 
@@ -407,9 +407,9 @@ async function generateReferralLinks() {
 
     if (result.status === 201) {
       const link = `https://bluehydralabs.com/pricing?ref=${slug}`;
-      console.log(`  OK    ${applicant.name} — ${link}`);
+      console.log(`  OK    ${applicant.name}: ${link}`);
     } else {
-      console.log(`  ERROR ${applicant.name} — status ${result.status}:`, JSON.stringify(result.body));
+      console.log(`  ERROR ${applicant.name}: status ${result.status}:`, JSON.stringify(result.body));
     }
   }
 
@@ -466,7 +466,7 @@ async function main() {
     } else if (mode === 'selected') {
       const token = await getOrCreateBriefToken(applicant.id);
       const link = `${SITE_URL}/onboarding/${token}`;
-      subject = "You're in — Founders' Five, Cohort 01";
+      subject = "You're in: Founders' Five, Cohort 01";
       html = selectedHtml(name, link);
     } else {
       subject = "Your Founders' Five application - Cohort 01";

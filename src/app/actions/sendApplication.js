@@ -40,7 +40,7 @@ export async function sendApplicationEmail(formData) {
     await transporter.sendMail({
       from: `"Bluehydra Applications" <${process.env.GMAIL_USER}>`,
       to: process.env.GMAIL_USER,
-      subject: `New Founders' Five application — ${businessName}`,
+      subject: `New Founders' Five application: ${businessName}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333; max-width: 600px;">
           <h2 style="color: #7c3aed;">New Founders' Five Application</h2>
@@ -50,7 +50,7 @@ export async function sendApplicationEmail(formData) {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>WhatsApp:</strong> ${whatsapp}</p>
           <p><strong>Existing Website:</strong> ${existingWebsite || 'None'}</p>
-          <p><strong>Social Media:</strong> ${socialPlatform} — <a href="${socialLink}">${socialLink}</a></p>
+          <p><strong>Social Media:</strong> ${socialPlatform}: <a href="${socialLink}">${socialLink}</a></p>
           <p><strong>What does your business do?</strong></p>
           <div style="background: #f4f4f4; padding: 15px; border-radius: 5px; margin-bottom: 12px;">
             ${businessDescription.replace(/\n/g, '<br/>')}

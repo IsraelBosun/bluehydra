@@ -57,6 +57,14 @@ Reusable CSS classes defined in `globals.css`: `.btn-primary`, `.btn-secondary`,
 
 `reactCompiler: true` is enabled in `next.config.mjs`, so manual `useMemo`/`useCallback` optimization is generally unnecessary.
 
+## Writing Style
+
+**Never use em dashes (—) anywhere in this project.** This applies to UI copy,
+page content, email templates, code comments, commit messages, and docs.
+
+Use a period, comma, colon, or parentheses instead. If a sentence feels like it
+needs an em dash, split it into two sentences.
+
 ## Workstation Security Constraints
 
 This project runs on a corporate bank workstation with enterprise endpoint protection (EDR/XDR) that monitors all process activity. The following behaviors have been flagged as suspicious or blocked by IT security. Claude Code MUST avoid all of them.

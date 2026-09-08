@@ -85,7 +85,7 @@ function buildReferralEmail(name, slug) {
         <ul style="margin:0 0 28px;padding-left:20px;color:#555555;font-size:15px;line-height:2;">
           <li>Anyone who messages us through your link gets <strong>50% off</strong> Website or E-commerce</li>
           <li>You earn <strong style="color:#7c3aed;">₦10,000 cash</strong> per successful referral</li>
-          <li>No cap — refer 5 businesses, earn ₦50,000</li>
+          <li>No cap: refer 5 businesses, earn ₦50,000</li>
           <li>We pay within <strong>24 hours</strong> of their first deposit</li>
         </ul>
 
@@ -96,7 +96,7 @@ function buildReferralEmail(name, slug) {
         <ol style="margin:0 0 36px;padding-left:20px;color:#555555;font-size:15px;line-height:2;">
           <li>Post about Bluehydra to your WhatsApp status with your link in the caption</li>
           <li>Share it in WhatsApp groups where business owners hang out</li>
-          <li>When friends ask "who built that?" — send them your link, not just a number</li>
+          <li>When friends ask "who built that?", send them your link, not just a number</li>
         </ol>
 
         <!-- CTA button -->
@@ -121,7 +121,7 @@ function buildReferralEmail(name, slug) {
 
       <!-- Footer -->
       <div style="background:#f8f8f8;border-top:1px solid #eeeeee;padding:18px 40px;text-align:center;">
-        <p style="margin:0;font-size:12px;color:#bbbbbb;">— The Bluehydra team · bluehydralabs.com</p>
+        <p style="margin:0;font-size:12px;color:#bbbbbb;">The Bluehydra team · bluehydralabs.com</p>
       </div>
     </div>
   </div>
